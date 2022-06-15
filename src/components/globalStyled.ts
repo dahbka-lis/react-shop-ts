@@ -19,7 +19,6 @@ export const Container = styled.div`
 
 export const Main = styled.main`
     flex: 1 0 auto;
-    background-color: lightblue;
 `;
 
 export const FooterStyled = styled.footer`

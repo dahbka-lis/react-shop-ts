@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container } from './globalStyled';
@@ -7,7 +8,23 @@ import { Container } from './globalStyled';
 
 const HeaderStyled = styled.header`
     padding-block: 1.5rem;
+    margin-bottom: 3rem;
+    background: #fff;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+        margin-bottom: 2rem;
+    }
+`;
+
+const TextLogo = styled.span`
+    font-size: 1.75em;
+    font-weight: 700;
+
+    & a {
+        color: inherit;
+        text-decoration: none;
+    }
 `;
 
 const HeaderInner = styled.div`
@@ -37,7 +54,7 @@ const HeaderInner = styled.div`
         list-style: none;
 
         & li:not(:last-child) {
-            margin-right: 1vw;
+            margin-right: 1.3vw;
         }
 
         @media (max-width: 768px) {
@@ -137,7 +154,9 @@ const Header: FC<IHeaderProps> = () => {
         <HeaderStyled>
             <Container>
                 <HeaderInner>
-                    <h2>Webshop</h2>
+                    <TextLogo>
+                        <Link to="/">Webshop</Link>
+                    </TextLogo>
                     <div>
                         <IconMenu onClick={toggleMenu} className={isOpen ? 'active' : ''}>
                             <span></span>
