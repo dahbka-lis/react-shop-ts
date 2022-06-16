@@ -3,6 +3,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const CartIcon = styled.div`
+    @media (max-width: 768px) {
+        transform: scale(0.8);
+        margin-right: 5px;
+    }
     display: block;
     box-sizing: border-box;
     position: relative;
@@ -70,7 +74,11 @@ const StyledButton = styled.button`
         padding-top: 0.1em;
     }
     @media (max-width: 1024px) {
-        margin-right: 75px;
+        margin-right: calc(50px + 1%);
+    }
+
+    @media (max-width: 768px) {
+        font-size: 0.75em;
     }
 `;
 
@@ -94,7 +102,7 @@ const CartButton: FC<ICartButtonProps> = () => {
     return (
         <StyledButton onClick={navigateToCart} data-cart>
             <CartIcon />
-            <span>$ 0</span>
+            <span>$125</span>
         </StyledButton>
     );
 };

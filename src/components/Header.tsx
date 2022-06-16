@@ -12,10 +12,6 @@ const HeaderStyled = styled.header`
     background: var(--bg-header);
     color: var(--color);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-
-    @media (max-width: 1024px) {
-        margin-bottom: 2rem;
-    }
 `;
 
 const TextLogo = styled.span`
@@ -29,6 +25,10 @@ const TextLogo = styled.span`
     & a {
         color: inherit;
         text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1em;
     }
 `;
 
@@ -102,7 +102,7 @@ const IconMenu = styled.div`
 
         position: absolute;
         top: calc(50% - 9px);
-        right: 2%;
+        right: 1%;
         z-index: 10;
 
         width: 30px;
@@ -143,37 +143,6 @@ const IconMenu = styled.div`
                     bottom: calc(50% - 1px);
                 }
             }
-        }
-    }
-`;
-
-const HeaderButtons = styled.div`
-    @media (max-width: 1024px) {
-        margin-right: 75px;
-    }
-    & button[data-cart] {
-        color: #fff;
-        font-size: 1em;
-        line-height: 1;
-        border: none;
-        border-radius: 50px;
-        padding: 1em 2em 1em 1.3em;
-        display: flex;
-        align-items: center;
-        background: #10b981;
-
-        transition: background 0.1s ease-in-out;
-
-        &:hover {
-            background: #0c9b6b;
-        }
-
-        &:active {
-            background: #1cca90;
-        }
-
-        & span {
-            padding-top: 0.1em;
         }
     }
 `;
