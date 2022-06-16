@@ -1,25 +1,30 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import CartButton from './CartButton';
 import { Container } from './globalStyled';
 
 // - - - - - - STYLES WITH STYLED-COMPONENTS
 
 const HeaderStyled = styled.header`
-    padding-block: 1.5rem;
-    margin-bottom: 3rem;
-    background: #fff;
+    padding-block: 1.1rem;
+    background: var(--bg-header);
+    color: var(--color);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         margin-bottom: 2rem;
     }
 `;
 
 const TextLogo = styled.span`
-    font-size: 1.75em;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5em;
     font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    padding-top: 0.3em;
 
     & a {
         color: inherit;
@@ -34,7 +39,9 @@ const HeaderInner = styled.div`
     position: relative;
 
     nav {
-        @media (max-width: 768px) {
+        z-index: 9;
+
+        @media (max-width: 1024px) {
             display: none;
 
             &.active {
@@ -43,7 +50,7 @@ const HeaderInner = styled.div`
                 align-items: center;
                 position: fixed;
                 inset: 0;
-                background-color: #fff;
+                background-color: var(--bg-header);
             }
         }
     }
@@ -57,7 +64,7 @@ const HeaderInner = styled.div`
             margin-right: 1.3vw;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             flex-direction: column;
 
             & li:not(:last-child) {
@@ -74,10 +81,10 @@ const HeaderInner = styled.div`
         padding: 0.5em 1.5em;
         border-radius: 50px;
 
-        transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
+        transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
 
         &:hover {
-            background: #d1fae5;
+            background: #10b98161;
         }
 
         &.active {
@@ -90,7 +97,7 @@ const HeaderInner = styled.div`
 const IconMenu = styled.div`
     display: none;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         display: block;
 
         position: absolute;
@@ -109,7 +116,7 @@ const IconMenu = styled.div`
             position: absolute;
             width: 100%;
             height: 2px;
-            background-color: #1e293b;
+            background-color: var(--color);
             transition: all 0.3s ease 0s;
 
             &:first-child {
@@ -140,6 +147,37 @@ const IconMenu = styled.div`
     }
 `;
 
+const HeaderButtons = styled.div`
+    @media (max-width: 1024px) {
+        margin-right: 75px;
+    }
+    & button[data-cart] {
+        color: #fff;
+        font-size: 1em;
+        line-height: 1;
+        border: none;
+        border-radius: 50px;
+        padding: 1em 2em 1em 1.3em;
+        display: flex;
+        align-items: center;
+        background: #10b981;
+
+        transition: background 0.1s ease-in-out;
+
+        &:hover {
+            background: #0c9b6b;
+        }
+
+        &:active {
+            background: #1cca90;
+        }
+
+        & span {
+            padding-top: 0.1em;
+        }
+    }
+`;
+
 // - - - - - - - - - - - - - - - - - -
 
 interface IHeaderProps {}
@@ -155,7 +193,7 @@ const Header: FC<IHeaderProps> = () => {
             <Container>
                 <HeaderInner>
                     <TextLogo>
-                        <Link to="/">Webshop</Link>
+                        <Link to="/">gracechapel</Link>
                     </TextLogo>
                     <div>
                         <IconMenu onClick={toggleMenu} className={isOpen ? 'active' : ''}>
@@ -166,7 +204,7 @@ const Header: FC<IHeaderProps> = () => {
                         <nav className={isOpen ? 'active' : ''}>
                             <ul>
                                 <li>
-                                    <NavLink to="/" onClick={closeMenu}>
+                                    <NavLink to="all" onClick={closeMenu}>
                                         All
                                     </NavLink>
                                 </li>
@@ -193,6 +231,7 @@ const Header: FC<IHeaderProps> = () => {
                             </ul>
                         </nav>
                     </div>
+                    <CartButton />
                 </HeaderInner>
             </Container>
         </HeaderStyled>
