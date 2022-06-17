@@ -7,6 +7,7 @@ import { StyledButton, Main } from '../components/globalStyled';
 const MainHomePage = styled(Main)`
     color: #fff;
     padding-top: 2rem;
+    padding-inline: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
