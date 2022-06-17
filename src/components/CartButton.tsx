@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ArrowIcon, StyledButton } from './globalStyled';
 
 const CartIcon = styled.div`
     @media (max-width: 768px) {
@@ -41,44 +42,9 @@ const CartIcon = styled.div`
     }
 `;
 
-const StyledButton = styled.button`
-    &[data-cart] {
-        padding: 1em 2em 1em 1.3em;
-    }
-
-    &[data-back] {
-        padding: 1.107em 2em;
-    }
-
-    color: #fff;
-    font-size: 1em;
-    font-weight: 700;
-    line-height: 1;
-    border: none;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    background: #10b981;
-
-    transition: background 0.1s ease-in-out;
-
-    &:hover {
-        background: #0c9b6b;
-    }
-
-    &:active {
-        background: #1cca90;
-    }
-
-    & span {
-        padding-top: 0.1em;
-    }
+const StyledCartButton = styled(StyledButton)`
     @media (max-width: 1024px) {
         margin-right: calc(50px + 1%);
-    }
-
-    @media (max-width: 768px) {
-        font-size: 0.75em;
     }
 `;
 
@@ -93,17 +59,17 @@ const CartButton: FC<ICartButtonProps> = () => {
 
     if (pathname === '/cart') {
         return (
-            <StyledButton onClick={navigateBack} data-back>
-                <span>Go back</span>
-            </StyledButton>
+            <StyledCartButton onClick={navigateBack} data-back>
+                <ArrowIcon /> Back
+            </StyledCartButton>
         );
     }
 
     return (
-        <StyledButton onClick={navigateToCart} data-cart>
+        <StyledCartButton onClick={navigateToCart} data-cart>
             <CartIcon />
             <span>$125</span>
-        </StyledButton>
+        </StyledCartButton>
     );
 };
 

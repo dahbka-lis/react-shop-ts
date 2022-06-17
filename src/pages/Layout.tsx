@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Container, FooterStyled, Main, Wrapper } from '../components/globalStyled';
+import Footer from '../components/Footer';
+import { FooterToBottom, Wrapper } from '../components/globalStyled';
 import Header from '../components/Header';
 
 interface ILayoutProps {}
@@ -10,13 +11,11 @@ const Layout: FC<ILayoutProps> = () => {
         <Wrapper>
             <Header />
 
-            <Main>
-                <Container>
-                    <Outlet />
-                </Container>
-            </Main>
+            <Outlet />
 
-            <FooterStyled>Footer!</FooterStyled>
+            <FooterToBottom>
+                <Footer />
+            </FooterToBottom>
         </Wrapper>
     );
 };

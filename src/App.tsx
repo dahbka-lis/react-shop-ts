@@ -11,7 +11,7 @@ const App: FC = () => {
             <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="/cart" element={<CartPage />} />
-                <Route path=":categorie" element={<CategoriesPage />} />
+                <Route path=":category" element={<CategoriesPage />} />
             </Route>
         </Routes>
     );

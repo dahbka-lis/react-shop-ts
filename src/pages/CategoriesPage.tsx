@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useParams } from 'react-router-dom';
+import { Main } from '../components/globalStyled';
 
 interface ICategoriesPageProps {}
 
 const CategoriesPage: FC<ICategoriesPageProps> = () => {
-    const { categorie } = useParams();
+    const { category } = useParams();
 
-    return <div>{categorie}</div>;
+    return <Main>{category}</Main>;
 };
 
 export default CategoriesPage;

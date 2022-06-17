@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import CartButton from './CartButton';
@@ -8,10 +8,12 @@ import { Container } from './globalStyled';
 // - - - - - - STYLES WITH STYLED-COMPONENTS
 
 const HeaderStyled = styled.header`
-    padding-block: 1.1rem;
+    position: relative;
+    z-index: 9;
+    padding-block: 1.2rem;
+    color: var(--alt);
     background: var(--bg-header);
-    color: var(--color);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 `;
 
 const TextLogo = styled.span`
@@ -116,7 +118,7 @@ const IconMenu = styled.div`
             position: absolute;
             width: 100%;
             height: 2px;
-            background-color: var(--color);
+            background-color: var(--alt);
             transition: all 0.3s ease 0s;
 
             &:first-child {
@@ -153,6 +155,7 @@ interface IHeaderProps {}
 
 const Header: FC<IHeaderProps> = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const { pathname } = useLocation();
 
     const toggleMenu = (): void => setIsOpen(state => !state);
     const closeMenu = (): void => setIsOpen(false);
@@ -178,13 +181,8 @@ const Header: FC<IHeaderProps> = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="electronics" onClick={closeMenu}>
-                                        Electronics
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="jewelery" onClick={closeMenu}>
-                                        Jewelery
+                                    <NavLink to="women's%20clothing" onClick={closeMenu}>
+                                        Women's
                                     </NavLink>
                                 </li>
                                 <li>
@@ -193,14 +191,19 @@ const Header: FC<IHeaderProps> = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="women's%20clothing" onClick={closeMenu}>
-                                        Women's
+                                    <NavLink to="jewelery" onClick={closeMenu}>
+                                        Jewelery
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="electronics" onClick={closeMenu}>
+                                        Electronics
                                     </NavLink>
                                 </li>
                             </ul>
                         </nav>
                     </div>
-                    <CartButton />
+                    {pathname.slice(1) && <CartButton />}
                 </HeaderInner>
             </Container>
         </HeaderStyled>
