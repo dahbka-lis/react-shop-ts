@@ -12,8 +12,8 @@ const HeaderStyled = styled.header`
     z-index: 9;
     padding-block: 1.2rem;
     color: var(--alt);
-    background: var(--bg-header);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background: var(--primary);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 `;
 
 const TextLogo = styled.span`
@@ -47,7 +47,7 @@ const HeaderInner = styled.div`
                 align-items: center;
                 position: fixed;
                 inset: 0;
-                background-color: var(--bg-header);
+                background-color: var(--primary);
             }
         }
     }
@@ -81,11 +81,11 @@ const HeaderInner = styled.div`
         transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
 
         &:hover {
-            background: #10b98161;
+            background: var(--secondary) 61;
         }
 
         &.active {
-            background: #10b981;
+            background: var(--secondary);
             color: white;
         }
     }

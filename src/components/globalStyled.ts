@@ -74,7 +74,7 @@ export const StyledButton = styled.button`
     padding: 0.75em 1.5em;
     display: flex;
     align-items: center;
-    background: #10b981;
+    background: var(--secondary);
 
     transition: background 0.1s ease-in-out;
 
@@ -83,7 +83,7 @@ export const StyledButton = styled.button`
     }
 
     &:active {
-        background: #1cca90;
+        background: var(--secondary-light);
     }
 
     & span {

@@ -5,11 +5,12 @@ import { Container } from './globalStyled';
 
 const FooterOuter = styled.div`
     color: #fff;
-    background-color: var(--bg-footer);
+    background-color: var(--primary);
     padding-block: 1.5rem;
 `;
 
 const FooterInner = styled.div`
+    color: var(--alt);
     font-size: 0.8em;
     letter-spacing: 1px;
     display: flex;
@@ -21,10 +22,10 @@ const FooterInner = styled.div`
     }
 
     & a {
-        color: #10b981;
+        color: var(--secondary);
 
         &:hover {
-            color: #1cca90;
+            color: var(--secondary-light);
         }
     }
 `;
