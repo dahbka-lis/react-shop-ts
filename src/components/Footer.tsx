@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container } from './globalStyled';
 
@@ -35,7 +36,9 @@ const Footer: FC<IFooterProps> = () => {
         <FooterOuter>
             <Container>
                 <FooterInner>
-                    <span>{new Date().getFullYear()} Gracechapel</span>
+                    <span>
+                        {new Date().getFullYear()} <Link to="/">Gracechapel</Link>
+                    </span>
                     <span>
                         This site is a test project. Made by{' '}
                         <a href="https://github.com/DaXBka" title="GitHub profile" target="_blank" rel="noreferrer">

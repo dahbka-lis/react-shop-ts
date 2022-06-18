@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import homeImage from '../assets/img/homepage-bg.jpg';
+import homeImage from '../assets/img/homepage-bg.webp';
 import { StyledButton, Main } from '../components/globalStyled';
 
 const MainHomePage = styled(Main)`
