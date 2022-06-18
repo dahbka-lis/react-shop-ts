@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import CartButton from './CartButton';
@@ -21,13 +21,7 @@ const TextLogo = styled.span`
     font-size: 1.5em;
     font-weight: 700;
     line-height: 1;
-    text-transform: uppercase;
     padding-top: 0.3em;
-
-    & a {
-        color: inherit;
-        text-decoration: none;
-    }
 
     @media (max-width: 768px) {
         font-size: 1em;
@@ -158,15 +152,15 @@ const Header: FC<IHeaderProps> = () => {
     const { pathname } = useLocation();
 
     const toggleMenu = (): void => setIsOpen(state => !state);
-    const closeMenu = (): void => setIsOpen(false);
+    const closeMenu = (): void => {
+        setTimeout(() => setIsOpen(false), 150);
+    };
 
     return (
         <HeaderStyled>
             <Container>
                 <HeaderInner>
-                    <TextLogo>
-                        <Link to="/">gracechapel</Link>
-                    </TextLogo>
+                    <TextLogo>GRACECHAPEL</TextLogo>
                     <div>
                         <IconMenu onClick={toggleMenu} className={isOpen ? 'active' : ''}>
                             <span></span>
