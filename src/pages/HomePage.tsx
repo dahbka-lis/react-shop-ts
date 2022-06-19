@@ -57,6 +57,12 @@ const Overlay = styled.div`
     z-index: 7;
 `;
 
+const Image = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+`;
+
 interface IHomePageProps {}
 
 const HomePage: FC<IHomePageProps> = () => {
@@ -65,17 +71,15 @@ const HomePage: FC<IHomePageProps> = () => {
     const navigateToProducts = () => navigate('all');
 
     return (
-        <MainHomePage>
-            <WelcomeInner>
-                <h1>Everything you need</h1>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ad quod amet quo fuga expedita,
-                    laboriosam suscipit neque inventore quam!
-                </p>
-                <StyledButton onClick={navigateToProducts}>Check products</StyledButton>
-            </WelcomeInner>
-            <Overlay />
-        </MainHomePage>
+        <>
+            <Image src={homeImage} />
+            {/* <h1>Everything you need</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ad quod amet quo fuga expedita, laboriosam
+                suscipit neque inventore quam!
+            </p>
+            <StyledButton onClick={navigateToProducts}>Check products</StyledButton> */}
+        </>
     );
 };
 

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container } from './globalStyled';
+import { Container, FooterToBottom } from './globalStyled';
 
 const FooterOuter = styled.div`
     color: #fff;
@@ -34,21 +34,23 @@ interface IFooterProps {}
 
 const Footer: FC<IFooterProps> = () => {
     return (
-        <FooterOuter>
-            <Container>
-                <FooterInner>
-                    <span>
-                        {new Date().getFullYear()} <Link to="/">Gracechapel</Link>
-                    </span>
-                    <span>
-                        This site is a test project. Made by{' '}
-                        <a href="https://github.com/DaXBka" title="GitHub profile" target="_blank" rel="noreferrer">
-                            DaXBka
-                        </a>
-                    </span>
-                </FooterInner>
-            </Container>
-        </FooterOuter>
+        <FooterToBottom>
+            <FooterOuter>
+                <Container>
+                    <FooterInner>
+                        <span>
+                            {new Date().getFullYear()} <Link to="/">Gracechapel</Link>
+                        </span>
+                        <span>
+                            This site is a test project. Made by{' '}
+                            <a href="https://github.com/DaXBka" title="GitHub profile" target="_blank" rel="noreferrer">
+                                DaXBka
+                            </a>
+                        </span>
+                    </FooterInner>
+                </Container>
+            </FooterOuter>
+        </FooterToBottom>
     );
 };
 
