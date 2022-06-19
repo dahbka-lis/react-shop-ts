@@ -6,27 +6,28 @@ import styled from 'styled-components';
 import CartButton from './CartButton';
 import { Container } from './globalStyled';
 
-// - - - - - - STYLES WITH STYLED-COMPONENTS
+// - - - - - - STYLED-COMPONENTS
 
 const HeaderStyled = styled.header`
+    color: var(--alt);
+
+    padding-block: 1.2rem;
+
     position: relative;
     z-index: 9;
-    padding-block: 1.2rem;
-    color: var(--alt);
+
     background: var(--primary);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 `;
 
 const TextLogo = styled.span`
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.5em;
-    font-weight: 700;
-    line-height: 1;
+    font: 700 1.5em 'Josefin Sans', sans-serif;
+
     padding-top: 0.3em;
     user-select: none;
 
     @media (max-width: 768px) {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 
     & a {
@@ -39,10 +40,11 @@ const HeaderInner = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     position: relative;
 
     nav {
-        z-index: 9;
+        z-index: 10;
 
         @media (max-width: 1024px) {
             display: none;
@@ -51,8 +53,10 @@ const HeaderInner = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
                 position: fixed;
                 inset: 0;
+
                 background-color: var(--primary);
             }
         }
@@ -61,11 +65,8 @@ const HeaderInner = styled.div`
     ul {
         display: flex;
         align-items: center;
-        list-style: none;
 
-        & li:not(:last-child) {
-            margin-right: 1.3vw;
-        }
+        list-style: none;
 
         @media (max-width: 1024px) {
             flex-direction: column;
@@ -74,6 +75,10 @@ const HeaderInner = styled.div`
                 margin-right: 0;
                 margin-bottom: 10vh;
             }
+        }
+
+        & li:not(:last-child) {
+            margin-right: 1.3vw;
         }
     }
 
@@ -91,8 +96,8 @@ const HeaderInner = styled.div`
         }
 
         &.active {
-            background: var(--secondary);
             color: white;
+            background: var(--secondary);
         }
     }
 `;
@@ -100,23 +105,32 @@ const HeaderInner = styled.div`
 const IconMenu = styled.button`
     display: none;
     border: none;
+
+    width: 30px;
+    height: 24px;
+
     position: absolute;
     top: calc(50% - 12px);
     right: 1%;
-    z-index: 10;
-    width: 30px;
-    height: 24px;
+    z-index: 90;
+
     cursor: pointer;
     background: transparent;
 
+    @media (max-width: 1024px) {
+        display: block;
+    }
+
     div {
+        position: absolute;
         top: calc(50% - 1px);
         left: 0px;
-        position: absolute;
+
         width: 100%;
         height: 2px;
+
         background-color: var(--alt);
-        transition: all 0.3s ease 0s;
+        transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
 
         &:first-child {
             top: 0px;
@@ -133,28 +147,24 @@ const IconMenu = styled.button`
             transform: scale(0);
 
             &:first-child {
-                transform: rotate(-45deg);
                 top: calc(50% - 1px);
+                transform: rotate(-45deg);
             }
 
             &:last-child {
-                transform: rotate(45deg);
                 bottom: calc(50% - 1px);
+                transform: rotate(45deg);
             }
         }
     }
-
-    @media (max-width: 1024px) {
-        display: block;
-    }
 `;
 
-// - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - -
 
 interface IHeaderProps {}
 
 const Header: FC<IHeaderProps> = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState(false);
     const { pathname } = useLocation();
 
     const toggleMenu = (): void => setIsOpen(state => !state);
@@ -205,7 +215,7 @@ const Header: FC<IHeaderProps> = () => {
                             </ul>
                         </nav>
                     </div>
-                    {pathname.slice(1) && <CartButton />}
+                    {!!pathname.slice(1) && <CartButton />}
                 </HeaderInner>
             </Container>
         </HeaderStyled>

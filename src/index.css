@@ -34,7 +34,3 @@ body.dark {
     --primary-light: #333333;
     --alt: #fff;
 }
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}

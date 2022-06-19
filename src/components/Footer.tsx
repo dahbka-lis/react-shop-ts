@@ -1,18 +1,21 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container } from './globalStyled';
+import { Container, FooterToBottom } from './globalStyled';
+
+// - - - - - - STYLED-COMPONENTS
 
 const FooterOuter = styled.div`
     color: #fff;
-    background-color: var(--primary);
     padding-block: 1.5rem;
+    background-color: var(--primary);
 `;
 
 const FooterInner = styled.div`
     color: var(--alt);
     font-size: 0.8em;
     letter-spacing: 1px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,25 +33,29 @@ const FooterInner = styled.div`
     }
 `;
 
+// - - - - - - - - - - - - - - -
+
 interface IFooterProps {}
 
 const Footer: FC<IFooterProps> = () => {
     return (
-        <FooterOuter>
-            <Container>
-                <FooterInner>
-                    <span>
-                        {new Date().getFullYear()} <Link to="/">Gracechapel</Link>
-                    </span>
-                    <span>
-                        This site is a test project. Made by{' '}
-                        <a href="https://github.com/DaXBka" title="GitHub profile" target="_blank" rel="noreferrer">
-                            DaXBka
-                        </a>
-                    </span>
-                </FooterInner>
-            </Container>
-        </FooterOuter>
+        <FooterToBottom>
+            <FooterOuter>
+                <Container>
+                    <FooterInner>
+                        <span>
+                            {new Date().getFullYear()} <Link to="/">Gracechapel</Link>
+                        </span>
+                        <span>
+                            This site is a test project. Made by{' '}
+                            <a href="https://github.com/DaXBka" title="GitHub profile" target="_blank" rel="noreferrer">
+                                DaXBka
+                            </a>
+                        </span>
+                    </FooterInner>
+                </Container>
+            </FooterOuter>
+        </FooterToBottom>
     );
 };
 

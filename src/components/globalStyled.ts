@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+    color: var(--alt);
+
     width: 100%;
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
-    color: var(--alt);
 `;
 
 export const Container = styled.div`
     max-width: 1200px;
+
     margin-inline: auto;
     padding-inline: 40px;
 
@@ -27,13 +30,14 @@ export const FooterToBottom = styled.footer`
 `;
 
 export const ArrowIcon = styled.div`
-    box-sizing: border-box;
-    position: relative;
     display: block;
     width: 20px;
     height: 21px;
-    transform: scale(1.4);
     border-radius: 22px;
+
+    position: relative;
+
+    transform: scale(1.4);
 
     @media (max-width: 768px) {
         width: 18px;
@@ -44,7 +48,7 @@ export const ArrowIcon = styled.div`
     &::before {
         content: '';
         display: block;
-        box-sizing: border-box;
+
         position: absolute;
         left: 0px;
     }
@@ -53,12 +57,14 @@ export const ArrowIcon = styled.div`
         height: 8px;
         border-bottom: 2px solid;
         border-left: 2px solid;
-        transform: rotate(45deg);
+
         bottom: 6px;
+        transform: rotate(45deg);
     }
     &::before {
         width: 10px;
         height: 2px;
+
         bottom: 9px;
         background: currentColor;
     }
@@ -69,14 +75,20 @@ export const StyledButton = styled.button`
     font-size: 0.9em;
     font-weight: 700;
     line-height: 1;
+
     border: none;
     border-radius: 50px;
     padding: 0.75em 1.5em;
+
     display: flex;
     align-items: center;
-    background: var(--secondary);
 
+    background: var(--secondary);
     transition: background 0.1s ease-in-out;
+
+    @media (max-width: 768px) {
+        font-size: 0.75em;
+    }
 
     &:hover {
         background: #0c9b6b;
@@ -89,8 +101,15 @@ export const StyledButton = styled.button`
     & span {
         padding-top: 0.1em;
     }
+`;
 
-    @media (max-width: 768px) {
-        font-size: 0.75em;
-    }
+export const Overlay = styled.div`
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+
+    background-color: #00000060;
 `;
