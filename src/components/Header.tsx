@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import CartButton from './CartButton';
@@ -26,6 +27,11 @@ const TextLogo = styled.span`
 
     @media (max-width: 768px) {
         font-size: 1em;
+    }
+
+    & a {
+        color: inherit;
+        text-decoration: none;
     }
 `;
 
@@ -81,7 +87,7 @@ const HeaderInner = styled.div`
         transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
 
         &:hover {
-            background: var(--secondary) 61;
+            background: var(--secondary-light);
         }
 
         &.active {
@@ -161,7 +167,9 @@ const Header: FC<IHeaderProps> = () => {
         <HeaderStyled>
             <Container>
                 <HeaderInner>
-                    <TextLogo>GRACECHAPEL</TextLogo>
+                    <TextLogo>
+                        <Link to="/">GRACECHAPEL</Link>
+                    </TextLogo>
                     <div>
                         <IconMenu onClick={toggleMenu} className={isOpen ? 'active' : ''}>
                             <span></span>
