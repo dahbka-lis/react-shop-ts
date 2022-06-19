@@ -109,7 +109,7 @@ const IconMenu = styled.button`
     cursor: pointer;
     background: transparent;
 
-    span {
+    div {
         top: calc(50% - 1px);
         left: 0px;
         position: absolute;
@@ -129,7 +129,7 @@ const IconMenu = styled.button`
     }
 
     &.active {
-        span {
+        div {
             transform: scale(0);
 
             &:first-child {
@@ -159,7 +159,7 @@ const Header: FC<IHeaderProps> = () => {
 
     const toggleMenu = (): void => setIsOpen(state => !state);
     const closeMenu = (): void => {
-        setTimeout(() => setIsOpen(false), 150);
+        setTimeout(() => setIsOpen(false), 200);
     };
 
     return (
@@ -171,9 +171,9 @@ const Header: FC<IHeaderProps> = () => {
                     </TextLogo>
                     <div>
                         <IconMenu onClick={toggleMenu} className={isOpen ? 'active' : ''}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </IconMenu>
                         <nav className={isOpen ? 'active' : ''}>
                             <ul>
