@@ -97,56 +97,55 @@ const HeaderInner = styled.div`
     }
 `;
 
-const IconMenu = styled.div`
+const IconMenu = styled.button`
     display: none;
+    border: none;
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 1%;
+    z-index: 10;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    background: transparent;
 
-    @media (max-width: 1024px) {
-        display: block;
-
+    span {
+        top: calc(50% - 1px);
+        left: 0px;
         position: absolute;
-        top: calc(50% - 9px);
-        right: 1%;
-        z-index: 10;
+        width: 100%;
+        height: 2px;
+        background-color: var(--alt);
+        transition: all 0.3s ease 0s;
 
-        width: 30px;
-        height: 18px;
+        &:first-child {
+            top: 0px;
+        }
 
-        cursor: pointer;
+        &:last-child {
+            top: auto;
+            bottom: 0px;
+        }
+    }
 
+    &.active {
         span {
-            top: calc(50% - 1px);
-            left: 0px;
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: var(--alt);
-            transition: all 0.3s ease 0s;
+            transform: scale(0);
 
             &:first-child {
-                top: 0px;
+                transform: rotate(-45deg);
+                top: calc(50% - 1px);
             }
 
             &:last-child {
-                top: auto;
-                bottom: 0px;
+                transform: rotate(45deg);
+                bottom: calc(50% - 1px);
             }
         }
+    }
 
-        &.active {
-            span {
-                transform: scale(0);
-
-                &:first-child {
-                    transform: rotate(-45deg);
-                    top: calc(50% - 1px);
-                }
-
-                &:last-child {
-                    transform: rotate(45deg);
-                    bottom: calc(50% - 1px);
-                }
-            }
-        }
+    @media (max-width: 1024px) {
+        display: block;
     }
 `;
 
