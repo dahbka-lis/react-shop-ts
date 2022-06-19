@@ -86,10 +86,6 @@ export const StyledButton = styled.button`
     background: var(--secondary);
     transition: background 0.1s ease-in-out;
 
-    @media (max-width: 768px) {
-        font-size: 0.75em;
-    }
-
     &:hover {
         background: #0c9b6b;
     }

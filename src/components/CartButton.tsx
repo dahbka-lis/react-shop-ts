@@ -50,6 +50,9 @@ const StyledCartButton = styled(StyledButton)`
     @media (max-width: 1024px) {
         margin-right: calc(50px + 1%);
     }
+    @media (max-width: 768px) {
+        font-size: 0.75em;
+    }
 `;
 
 // - - - - - - - - - - - - - - -
