@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import homeImage from '../assets/img/homepage-bg.webp';
+import homeImage from '../../public/assets/img/homepage-bg.webp';
 import { StyledButton, Main } from '../components/globalStyled';
 
 const MainHomePage = styled(Main)`
@@ -13,7 +13,8 @@ const MainHomePage = styled(Main)`
     align-items: center;
     position: relative;
     z-index: 6;
-    background: url(${homeImage}) no-repeat center / cover;
+    background: url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
+        no-repeat center / cover;
 
     & div:first-child {
         position: relative;
@@ -67,6 +68,7 @@ const HomePage: FC<IHomePageProps> = () => {
     return (
         <MainHomePage>
             <WelcomeInner>
+                <img src="./assets/img/homepage-bg.webp" alt="" />
                 <h1>Everything you need</h1>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ad quod amet quo fuga expedita,
