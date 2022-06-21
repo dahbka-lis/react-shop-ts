@@ -32,5 +32,5 @@ body {
 body.dark {
     --primary: #212121;
     --primary-light: #333333;
-    --alt: #fff;
+    --alt: #fff
 }
