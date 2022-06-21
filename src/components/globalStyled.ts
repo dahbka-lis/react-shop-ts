@@ -91,7 +91,7 @@ export const StyledButton = styled.button`
     }
 
     &:active {
-        background: var(--secondary-light);
+        background: var(--secondary-tp);
     }
 
     & span {

@@ -92,7 +92,7 @@ const HeaderInner = styled.div`
         transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
 
         &:hover {
-            background: var(--secondary-light);
+            background: var(--secondary-tp);
         }
 
         &.active {
