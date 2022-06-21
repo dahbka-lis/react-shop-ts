@@ -1,4 +1,4 @@
-import { FC, createContext, useState, Dispatch, SetStateAction } from 'react';
+import { FC, createContext, useState, Dispatch, SetStateAction, useEffect } from 'react';
 
 interface IThemeContext {
     isDarkTheme: boolean;
@@ -13,6 +13,12 @@ interface IThemeProviderProps {
 
 const ThemeProvider: FC<IThemeProviderProps> = ({ children }) => {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+    useEffect(() => {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setIsDarkTheme(true);
+        }
+    }, []);
 
     return <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>{children}</ThemeContext.Provider>;
 };
