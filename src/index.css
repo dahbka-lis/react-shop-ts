@@ -16,7 +16,7 @@ body {
 
 body {
     --primary: #fff;
-    --primary-light: #d1fae5;
+    --primary-light: #ecfdf5;
     --primary: #fff;
     --alt: #212121;
     --secondary: #10b981;
@@ -28,6 +28,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--primary-light);
+    overflow-x: hidden;
 }
 
 body.dark {
@@ -38,4 +39,9 @@ body.dark {
 
 body * {
     transition: background-color 0.25s ease-in-out;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

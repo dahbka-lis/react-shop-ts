@@ -188,27 +188,22 @@ const Header: FC<IHeaderProps> = () => {
                         <nav className={isOpen ? 'active' : ''}>
                             <ul>
                                 <li>
-                                    <NavLink to="all" onClick={closeMenu}>
-                                        All
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="women's%20clothing" onClick={closeMenu}>
+                                    <NavLink to="products/women's%20clothing" onClick={closeMenu}>
                                         Women's
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="men's%20clothing" onClick={closeMenu}>
+                                    <NavLink to="products/men's%20clothing" onClick={closeMenu}>
                                         Men's
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="jewelery" onClick={closeMenu}>
+                                    <NavLink to="products/jewelery" onClick={closeMenu}>
                                         Jewelery
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="electronics" onClick={closeMenu}>
+                                    <NavLink to="products/electronics" onClick={closeMenu}>
                                         Electronics
                                     </NavLink>
                                 </li>

@@ -22,7 +22,7 @@ const App: FC = () => {
             <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="/cart" element={<CartPage />} />
-                <Route path=":category" element={<CategoriesPage />} />
+                <Route path="/products/:categoryName" element={<CategoriesPage />} />
             </Route>
         </Routes>
     );

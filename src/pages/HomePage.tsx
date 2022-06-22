@@ -60,7 +60,7 @@ interface IHomePageProps {}
 const HomePage: FC<IHomePageProps> = () => {
     const navigate = useNavigate();
 
-    const navigateToProducts = () => navigate('all');
+    const navigateToProducts = () => navigate("products/women's%20clothing");
 
     return (
         <MainHomePage>
