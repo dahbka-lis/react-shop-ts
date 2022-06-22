@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { CardItem } from '../@types/card';
@@ -7,6 +7,7 @@ import { Container, Main } from '../components/globalStyled';
 import ProductItem from '../components/ProductItem';
 import Skeleton from '../components/Skeleton';
 import { capitalize } from '../helpers';
+import NotFoundPage from './NotFoundPage';
 
 // - - - - - - STYLED-COMPONENTS
 const MainCategoriesPage = styled(Main)`
@@ -38,21 +39,29 @@ const PageTitle = styled.section`
 `;
 // - - - - - - - - - - - - - - -
 
-const CategoriesPage: FC = () => {
-    const { categoryName } = useParams();
-    const [items, setItems] = useState<CardItem[] | null>(null);
+// Succes categories
+const categories = ["women's clothing", "men's clothing", 'jewelery', 'electronics'];
 
+const CategoriesPage: FC = () => {
+    const { categoryName } = useParams(); // for fetch data.
+    const [items, setItems] = useState<CardItem[] | null>(null); // rerender.
+
+    // Async callback for fetch data.
+    const fetchCardItems = useCallback(async () => {
+        const cards = await axios.get(`https://fakestoreapi.com/products/category/${categoryName}`);
+        setItems(cards.data);
+    }, [categoryName]);
+
+    // Get API data when page mount. IF for fetch when param !== null and param exist
     useEffect(() => {
         setItems(null);
+        if (categoryName && categories.includes(categoryName)) fetchCardItems();
+    }, [categoryName, fetchCardItems]);
 
-        if (categoryName) {
-            const url = `https://fakestoreapi.com/products/category/${categoryName}`;
-            axios
-                .get(url)
-                .then(res => setItems(res.data))
-                .catch(error => console.log(error));
-        }
-    }, [categoryName]);
+    // If param does not exist (array succes categories - categories(42 line))
+    if (categoryName && !categories.includes(categoryName)) {
+        return <NotFoundPage />;
+    }
 
     return (
         <MainCategoriesPage>

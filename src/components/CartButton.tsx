@@ -53,6 +53,14 @@ const StyledCartButton = styled(StyledButton)`
         font-size: 0.75em;
     }
 `;
+
+const CountNumber = styled.span`
+    display: inline-block;
+    border-right: 1.5px solid #fff;
+    padding-bottom: 1px;
+    padding-right: 0.75em;
+    margin-right: 0.75em;
+`;
 // - - - - - - - - - - - - - - -
 
 const CartButton: FC = () => {
@@ -73,6 +81,7 @@ const CartButton: FC = () => {
     return (
         <StyledCartButton onClick={navigateToCart} data-cart>
             <CartIcon />
+            <CountNumber>2</CountNumber>
             <span>$125</span>
         </StyledCartButton>
     );

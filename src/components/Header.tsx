@@ -12,7 +12,8 @@ const HeaderStyled = styled.header`
 
     padding-block: 1.2rem;
 
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 9;
 
     background: var(--primary);
@@ -159,21 +160,26 @@ const IconMenu = styled.button`
 `;
 // - - - - - - - - - - - - - - -
 
+type HeaderLogo = 'GRACECHAPEL' | 'GC';
+
 const Header: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { pathname } = useLocation();
+    let textLogo: HeaderLogo = 'GRACECHAPEL';
 
     const toggleMenu = (): void => setIsOpen(state => !state);
     const closeMenu = (): void => {
         setTimeout(() => setIsOpen(false), 200);
     };
 
+    if (window.innerWidth <= 768) textLogo = 'GC';
+
     return (
         <HeaderStyled>
             <Container>
                 <HeaderInner>
                     <TextLogo>
-                        <Link to="/">GRACECHAPEL</Link>
+                        <Link to="/">{textLogo}</Link>
                     </TextLogo>
                     <div>
                         <IconMenu onClick={toggleMenu} className={isOpen ? 'active' : ''}>
