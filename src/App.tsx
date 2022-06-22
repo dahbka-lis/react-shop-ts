@@ -1,5 +1,6 @@
 import { FC, useContext, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ThemeContextType } from './@types/theme';
 import { ThemeContext } from './context/ThemeContext';
 import CartPage from './pages/CartPage';
 import CategoriesPage from './pages/CategoriesPage';
@@ -7,10 +8,10 @@ import HomePage from './pages/HomePage';
 import Layout from './pages/Layout';
 
 const App: FC = () => {
-    const theme = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext) as ThemeContextType;
 
     useEffect(() => {
-        if (theme?.isDarkTheme) {
+        if (theme === 'dark') {
             document.body.classList.add('dark');
         } else {
             document.body.classList.remove('dark');

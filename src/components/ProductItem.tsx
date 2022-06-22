@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
-import { ICardItem } from '../pages/CategoriesPage';
+import { CardItem } from '../@types/card';
 import { StyledButton } from './globalStyled';
 
+// - - - - - - STYLED-COMPONENTS
 const StyledProductItem = styled.div`
     max-width: 490px;
     flex: 1 1 50%;
@@ -55,14 +56,14 @@ const ProductBuy = styled.div`
         font-size: 1.2em;
     }
 `;
+// - - - - - - - - - - - - - - -
 
-const ProductItem: FC<ICardItem> = ({ title, description, image, price, rating }) => {
+const ProductItem: FC<CardItem> = ({ title, image, price }) => {
     return (
         <StyledProductItem>
             <ImageBlock>
                 <img src={image} alt="" />
             </ImageBlock>
-
             <ProductInfo>
                 <h3>{title}</h3>
                 <hr />

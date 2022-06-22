@@ -1,14 +1,17 @@
 import { FC, useContext } from 'react';
 import styled from 'styled-components';
+import { ThemeContextType } from '../@types/theme';
 import { ThemeContext } from '../context/ThemeContext';
+import { capitalize } from '../helpers';
 
+// - - - - - - STYLED-COMPONENTS
 const SwitchStyled = styled.label`
     display: inline-block;
     position: relative;
 
     border-radius: 50px;
-    height: 24px;
     width: 48px;
+    height: 24px;
 
     background-color: rgb(73, 73, 73);
     border: 1px solid rgb(73, 73, 73);
@@ -44,21 +47,18 @@ const SwitchStyled = styled.label`
         }
     }
 `;
+// - - - - - - - - - - - - - - -
 
-interface ISwitchButtonProps {}
-
-const SwitchButton: FC<ISwitchButtonProps> = () => {
-    const theme = useContext(ThemeContext);
-
-    const changeTheme = () => theme?.setIsDarkTheme(!theme.isDarkTheme);
+const SwitchButton: FC = () => {
+    const { theme, switchTheme } = useContext(ThemeContext) as ThemeContextType;
 
     return (
         <>
-            <SwitchStyled className={theme?.isDarkTheme ? 'checked' : ''}>
-                <input onChange={changeTheme} type="checkbox" />
+            <SwitchStyled className={theme === 'dark' ? 'checked' : ''}>
+                <input onChange={switchTheme} type="checkbox" />
                 <div></div>
             </SwitchStyled>
-            <span>{theme?.isDarkTheme ? 'Dark' : 'Light'}</span>
+            <span>{capitalize(theme)}</span>
         </>
     );
 };

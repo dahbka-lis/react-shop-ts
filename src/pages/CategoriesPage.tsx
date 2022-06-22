@@ -2,11 +2,13 @@ import axios from 'axios';
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { CardItem } from '../@types/card';
 import { Container, Main } from '../components/globalStyled';
 import ProductItem from '../components/ProductItem';
 import Skeleton from '../components/Skeleton';
 import { capitalize } from '../helpers';
 
+// - - - - - - STYLED-COMPONENTS
 const MainCategoriesPage = styled(Main)`
     padding-top: 2rem;
 `;
@@ -34,39 +36,33 @@ const PageTitle = styled.section`
         border-bottom: 1px solid #ffffff61;
     }
 `;
-
-export interface ICardItem {
-    id: number;
-    category: string;
-    title: string;
-    description: string;
-    image: string;
-    price: number;
-    rating: {
-        rate: number;
-        count: number;
-    };
-}
+// - - - - - - - - - - - - - - -
 
 const CategoriesPage: FC = () => {
     const { categoryName } = useParams();
-    const [items, setItems] = useState<ICardItem[] | null>(null);
-    console.log(items);
+    const [items, setItems] = useState<CardItem[] | null>(null);
 
     useEffect(() => {
         setItems(null);
-        const url = `https://fakestoreapi.com/products/category/${categoryName}`;
-        axios.get(url).then(res => setItems(res.data));
+
+        if (categoryName) {
+            const url = `https://fakestoreapi.com/products/category/${categoryName}`;
+            axios
+                .get(url)
+                .then(res => setItems(res.data))
+                .catch(error => console.log(error));
+        }
     }, [categoryName]);
 
     return (
         <MainCategoriesPage>
             <Container>
                 <PageTitle>{!!categoryName && <h1>{capitalize(categoryName)}</h1>}</PageTitle>
+
                 <PageInner>
                     {items
                         ? items.map(item => <ProductItem {...item} key={item.id} />)
-                        : [...new Array(4)].map(_ => <Skeleton />)}
+                        : [...new Array(4)].map((_, i) => <Skeleton key={i} />)}
                 </PageInner>
             </Container>
         </MainCategoriesPage>

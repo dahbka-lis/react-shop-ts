@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { ArrowIcon, StyledButton } from './globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-
 const CartIcon = styled.div`
     display: block;
     width: 20px;
@@ -54,12 +53,9 @@ const StyledCartButton = styled(StyledButton)`
         font-size: 0.75em;
     }
 `;
-
 // - - - - - - - - - - - - - - -
 
-interface ICartButtonProps {}
-
-const CartButton: FC<ICartButtonProps> = () => {
+const CartButton: FC = () => {
     const navigate = useNavigate();
     const { pathname } = useLocation();
 

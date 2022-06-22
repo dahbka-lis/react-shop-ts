@@ -25,10 +25,6 @@ export const Main = styled.main`
     flex: 1 0 auto;
 `;
 
-export const FooterToBottom = styled.footer`
-    flex: 0 0 auto;
-`;
-
 export const ArrowIcon = styled.div`
     display: block;
     width: 20px;

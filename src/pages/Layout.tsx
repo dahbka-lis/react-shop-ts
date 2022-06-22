@@ -4,9 +4,7 @@ import Footer from '../components/Footer';
 import { Wrapper } from '../components/globalStyled';
 import Header from '../components/Header';
 
-interface ILayoutProps {}
-
-const Layout: FC<ILayoutProps> = () => {
+const Layout: FC = () => {
     return (
         <Wrapper>
             <Header />

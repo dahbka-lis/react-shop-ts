@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Container, FooterToBottom } from './globalStyled';
+import { Container } from './globalStyled';
 import SwitchButton from './SwitchButton';
 
 // - - - - - - STYLED-COMPONENTS
-
-const FooterOuter = styled.div`
+const FooterStyled = styled.footer`
+    flex: 0 0 auto;
     background-color: var(--primary);
     padding: 1.75em 0;
     font-size: 12px;
@@ -49,38 +49,28 @@ const SwitchBlock = styled.div`
         gap: 0.25em;
     }
 `;
-
 // - - - - - - - - - - - - - - -
 
-interface IFooterProps {}
-
-const Footer: FC<IFooterProps> = () => {
+const Footer: FC = () => {
     return (
-        <FooterToBottom>
-            <FooterOuter>
-                <Container>
-                    <FooterInner>
-                        <RightsBlock>
-                            <span>
-                                Copyright © {new Date().getFullYear()} Test project by{' '}
-                                <a
-                                    href="https://github.com/DaXBka"
-                                    title="GitHub profile"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    DaXBka
-                                </a>
-                                .
-                            </span>
-                        </RightsBlock>
-                        <SwitchBlock>
-                            Theme: <SwitchButton />
-                        </SwitchBlock>
-                    </FooterInner>
-                </Container>
-            </FooterOuter>
-        </FooterToBottom>
+        <FooterStyled>
+            <Container>
+                <FooterInner>
+                    <RightsBlock>
+                        <span>
+                            Copyright © {new Date().getFullYear()} Test project by{' '}
+                            <a href="https://github.com/DaXBka" title="GitHub profile" target="_blank" rel="noreferrer">
+                                DaXBka
+                            </a>
+                            .
+                        </span>
+                    </RightsBlock>
+                    <SwitchBlock>
+                        Theme: <SwitchButton />
+                    </SwitchBlock>
+                </FooterInner>
+            </Container>
+        </FooterStyled>
     );
 };
 

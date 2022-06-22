@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { StyledButton, Main, Overlay } from '../components/globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-
 const MainHomePage = styled(Main)`
     color: #fff;
 
@@ -52,15 +51,12 @@ const HomePageInner = styled.div`
         margin-top: 1.5rem;
     }
 `;
-
 // - - - - - - - - - - - - - - -
 
-interface IHomePageProps {}
-
-const HomePage: FC<IHomePageProps> = () => {
+const HomePage: FC = () => {
     const navigate = useNavigate();
 
-    const navigateToProducts = () => navigate("products/women's%20clothing");
+    const navigateToProducts = () => navigate("products/women's clothing");
 
     return (
         <MainHomePage>

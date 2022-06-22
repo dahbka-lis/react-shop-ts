@@ -1,9 +1,7 @@
 import { FC } from 'react';
 import { Main } from '../components/globalStyled';
 
-interface ICartPageProps {}
-
-const CartPage: FC<ICartPageProps> = () => {
+const CartPage: FC = () => {
     return <Main>CartPage</Main>;
 };
 

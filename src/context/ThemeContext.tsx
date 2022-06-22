@@ -1,26 +1,29 @@
-import { FC, createContext, useState, Dispatch, SetStateAction, useEffect } from 'react';
+import { FC, createContext, useState, useEffect } from 'react';
+import { Theme, ThemeContextType } from '../@types/theme';
 
-interface IThemeContext {
-    isDarkTheme: boolean;
-    setIsDarkTheme: Dispatch<SetStateAction<boolean>>;
-}
+export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export const ThemeContext = createContext<IThemeContext | null>(null);
-
-interface IThemeProviderProps {
+// Create a component with Context.Provider and value in component
+type ThemeProviderProps = {
     children: JSX.Element | JSX.Element[];
-}
+};
 
-const ThemeProvider: FC<IThemeProviderProps> = ({ children }) => {
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
+const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+    const [theme, setTheme] = useState<Theme>('light');
 
+    // Detect prefer color theme
     useEffect(() => {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setIsDarkTheme(true);
+            setTheme('dark');
         }
     }, []);
 
-    return <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>{children}</ThemeContext.Provider>;
-};
+    // Func-helper for easy change theme without useless IF ELSE in other components
+    const switchTheme = () => {
+        if (theme === 'light') setTheme('dark');
+        else setTheme('light');
+    };
 
+    return <ThemeContext.Provider value={{ theme, setTheme, switchTheme }}>{children}</ThemeContext.Provider>;
+};
 export default ThemeProvider;

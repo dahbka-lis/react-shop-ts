@@ -7,7 +7,6 @@ import CartButton from './CartButton';
 import { Container } from './globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-
 const HeaderStyled = styled.header`
     color: var(--alt);
 
@@ -158,12 +157,9 @@ const IconMenu = styled.button`
         }
     }
 `;
-
 // - - - - - - - - - - - - - - -
 
-interface IHeaderProps {}
-
-const Header: FC<IHeaderProps> = () => {
+const Header: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { pathname } = useLocation();
 
