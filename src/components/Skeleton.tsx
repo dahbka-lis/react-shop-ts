@@ -5,7 +5,7 @@ import { ThemeContext } from '../context/ThemeContext';
 const Skeleton = () => {
     const theme = useContext(ThemeContext);
 
-    if (window.innerWidth <= 400) {
+    if (window.innerWidth <= 768) {
         return (
             <ContentLoader
                 speed={1.7}
