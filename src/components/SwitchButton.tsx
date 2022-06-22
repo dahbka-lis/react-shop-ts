@@ -53,10 +53,13 @@ const SwitchButton: FC<ISwitchButtonProps> = () => {
     const changeTheme = () => theme?.setIsDarkTheme(!theme.isDarkTheme);
 
     return (
-        <SwitchStyled className={theme?.isDarkTheme ? 'checked' : ''}>
-            <input onChange={changeTheme} type="checkbox" />
-            <div></div>
-        </SwitchStyled>
+        <>
+            <SwitchStyled className={theme?.isDarkTheme ? 'checked' : ''}>
+                <input onChange={changeTheme} type="checkbox" />
+                <div></div>
+            </SwitchStyled>
+            <span>{theme?.isDarkTheme ? 'Dark' : 'Light'}</span>
+        </>
     );
 };
 
