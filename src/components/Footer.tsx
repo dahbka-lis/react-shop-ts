@@ -7,8 +7,8 @@ import SwitchButton from './SwitchButton';
 const FooterStyled = styled.footer`
     flex: 0 0 auto;
     background-color: var(--primary);
-    padding: 1.75em 0;
-    font-size: 12px;
+    padding: 2em 0;
+    font-size: 0.75em;
     color: var(--alt);
 
     @media (max-width: 768px) {
@@ -23,7 +23,6 @@ const FooterInner = styled.div`
 `;
 
 const RightsBlock = styled.div`
-    opacity: 1;
     margin-right: 1em;
 
     a {
