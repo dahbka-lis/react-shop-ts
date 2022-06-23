@@ -14,7 +14,7 @@ const HeaderStyled = styled.header`
 
     position: sticky;
     top: 0;
-    z-index: 9;
+    z-index: 20;
 
     background: var(--primary);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);

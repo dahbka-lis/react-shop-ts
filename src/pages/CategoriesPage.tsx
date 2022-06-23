@@ -18,7 +18,7 @@ const PageInner = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: stretch;
 
     @media (max-width: 1100px) {
         flex-wrap: nowrap;
