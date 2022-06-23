@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { CardItem } from '../@types/card';
 import { Overlay, StyledButton } from './globalStyled';
@@ -83,27 +84,32 @@ const CardOverlay = styled(Overlay)`
     }
 
     h3 {
-        opacity: 1;
+        color: #fff;
         max-width: 380px;
+        opacity: 1;
     }
 `;
 // - - - - - - - - - - - - - - -
 
-const ProductItem: FC<CardItem> = ({ title, image, price }) => {
+const ProductItem: FC<CardItem> = ({ title, image, price, category, id }) => {
+    const navigate = useNavigate();
+
+    const onClickViewMore = () => {
+        navigate(`/products/${category}/${id}`);
+    };
+
     return (
         <StyledProductItem>
             <ImageBlock>
                 <img src={image} alt="" />
             </ImageBlock>
             <ProductInfo>
-                {/* <h3>{title}</h3> */}
-                {/* <hr /> */}
                 <ProductBuy>
                     <span>$ {price}</span>
-                    <StyledButton>View more</StyledButton>
+                    <StyledButton onClick={onClickViewMore}>View more</StyledButton>
                 </ProductBuy>
             </ProductInfo>
-            <CardOverlay>
+            <CardOverlay onClick={onClickViewMore}>
                 <h3>{title}</h3>
             </CardOverlay>
         </StyledProductItem>

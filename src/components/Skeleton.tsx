@@ -7,20 +7,19 @@ const Skeleton = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
     const isDarkTheme = theme === 'dark';
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 540) {
         return (
             <ContentLoader
                 speed={1.7}
-                width={315}
-                height={397}
-                viewBox="0 0 315 397"
+                width={280}
+                height={340}
+                viewBox="0 0 280 340"
                 backgroundColor={isDarkTheme ? '#6b6b6b' : '#f3f3f3'}
                 foregroundColor={isDarkTheme ? '#555555' : '#e4e4e4'}
             >
-                <rect x="-2" y="1" rx="10" ry="10" width="315" height="200" />
-                <rect x="23" y="227" rx="10" ry="10" width="267" height="46" />
-                <rect x="23" y="315" rx="10" ry="10" width="61" height="26" />
-                <rect x="173" y="311" rx="20" ry="20" width="119" height="36" />
+                <rect x="0" y="0" rx="10" ry="10" width="270" height="200" />
+                <rect x="20" y="225" rx="10" ry="10" width="71" height="26" />
+                <rect x="145" y="220" rx="20" ry="20" width="115" height="36" />
             </ContentLoader>
         );
     }
@@ -29,15 +28,14 @@ const Skeleton = () => {
         <ContentLoader
             speed={1.7}
             width={490}
-            height={372}
-            viewBox="0 0 490 372"
+            height={340}
+            viewBox="0 0 490 340"
             backgroundColor={isDarkTheme ? '#6b6b6b' : '#f3f3f3'}
             foregroundColor={isDarkTheme ? '#555555' : '#e4e4e4'}
         >
-            <rect x="0" y="2" rx="10" ry="10" width="490" height="207" />
-            <rect x="24" y="238" rx="10" ry="10" width="442" height="28" />
-            <rect x="25" y="310" rx="10" ry="10" width="61" height="26" />
-            <rect x="347" y="305" rx="20" ry="20" width="119" height="36" />
+            <rect x="0" y="0" rx="10" ry="10" width="490" height="200" />
+            <rect x="20" y="225" rx="10" ry="10" width="71" height="26" />
+            <rect x="355" y="220" rx="20" ry="20" width="115" height="36" />
         </ContentLoader>
     );
 };

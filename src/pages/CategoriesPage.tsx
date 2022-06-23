@@ -12,6 +12,13 @@ import NotFoundPage from './NotFoundPage';
 // - - - - - - STYLED-COMPONENTS
 const MainCategoriesPage = styled(Main)`
     padding-top: 2rem;
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        border: 1px solid var(--alt);
+        opacity: 0.2;
+    }
 `;
 
 const PageInner = styled.div`
@@ -32,9 +39,6 @@ const PageTitle = styled.section`
     h1 {
         font-size: 3em;
         text-align: center;
-        margin-bottom: 1em;
-        padding-bottom: 0.5em;
-        border-bottom: 1px solid #ffffff61;
     }
 `;
 // - - - - - - - - - - - - - - -
@@ -67,7 +71,7 @@ const CategoriesPage: FC = () => {
         <MainCategoriesPage>
             <Container>
                 <PageTitle>{!!categoryName && <h1>{capitalize(categoryName)}</h1>}</PageTitle>
-
+                <hr />
                 <PageInner>
                     {items
                         ? items.map(item => <ProductItem {...item} key={item.id} />)

@@ -7,6 +7,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import HomePage from './pages/HomePage';
 import Layout from './pages/Layout';
 import NotFoundPage from './pages/NotFoundPage';
+import ProductItemPage from './pages/ProductItemPage';
 
 const App: FC = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
@@ -25,6 +26,7 @@ const App: FC = () => {
                 <Route index element={<HomePage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/products/:categoryName" element={<CategoriesPage />} />
+                <Route path="/products/:categoryName/:id" element={<ProductItemPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Route>
         </Routes>
