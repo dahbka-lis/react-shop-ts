@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContextType } from '../../@types/theme';
 import { ThemeContext } from '../../context/ThemeContext';
-import { capitalize } from '../../helpers';
+import { capitalize } from '../../helpers/helpers';
 
 // - - - - - - STYLED-COMPONENTS
 const SwitchStyled = styled.label`

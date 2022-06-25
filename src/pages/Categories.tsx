@@ -1,13 +1,9 @@
-import axios from 'axios';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { CardItem } from '../@types/card';
 import { Container, Main } from '../components/globalStyled';
-import ProductItem from '../components/ProductItem';
-import Skeleton from '../components/ProductItem/Skeleton';
 import ProductList from '../components/ProductList';
-import { capitalize } from '../helpers';
+import { capitalize } from '../helpers/helpers';
 import NotFoundPage from './NotFound';
 
 // - - - - - - STYLED-COMPONENTS
