@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { StyledButton, Main, Overlay } from '../components/globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-const MainHomePage = styled(Main)`
+const MainHomeStyled = styled(Main)`
     color: #fff;
 
     padding-top: 2rem;
@@ -21,7 +21,7 @@ const MainHomePage = styled(Main)`
         no-repeat center / cover;
 `;
 
-const HomePageInner = styled.div`
+const PageInner = styled.div`
     font-size: max(1em, 1vw);
     text-align: center;
 
@@ -59,17 +59,17 @@ const HomePage: FC = () => {
     const navigateToProducts = () => navigate("products/women's clothing");
 
     return (
-        <MainHomePage>
-            <HomePageInner>
+        <MainHomeStyled>
+            <PageInner>
                 <h1>Everything you need</h1>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ad quod amet quo fuga expedita,
                     laboriosam suscipit neque inventore quam!
                 </p>
                 <StyledButton onClick={navigateToProducts}>Check products</StyledButton>
-            </HomePageInner>
+            </PageInner>
             <Overlay />
-        </MainHomePage>
+        </MainHomeStyled>
     );
 };
 

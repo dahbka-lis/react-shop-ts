@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, Main, StyledButton } from '../components/globalStyled';
 
-const NotFoundMain = styled(Main)`
+const MainNotFoundStyled = styled(Main)`
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
-const StyledNotFound = styled.div`
+const PageInner = styled.div`
     text-align: center;
 
     span {
@@ -37,9 +37,9 @@ const NotFoundPage: FC = () => {
     const navigateToHome = () => navigate('/');
 
     return (
-        <NotFoundMain>
+        <MainNotFoundStyled>
             <Container>
-                <StyledNotFound>
+                <PageInner>
                     <span>😔</span>
                     <h1>This page does not exist.</h1>
                     <p>
@@ -47,9 +47,9 @@ const NotFoundPage: FC = () => {
                         the site without changing them yourself.
                     </p>
                     <StyledButton onClick={navigateToHome}>Go home</StyledButton>
-                </StyledNotFound>
+                </PageInner>
             </Container>
-        </NotFoundMain>
+        </MainNotFoundStyled>
     );
 };
 
