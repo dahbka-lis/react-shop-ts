@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Container } from './globalStyled';
-import SwitchButton from './SwitchButton';
+import { Container } from '../globalStyled';
+import SwitchButton from '../Buttons/SwitchThemeButton';
 
 // - - - - - - STYLED-COMPONENTS
 const FooterStyled = styled.footer`

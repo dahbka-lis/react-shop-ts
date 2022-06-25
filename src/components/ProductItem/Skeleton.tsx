@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import ContentLoader from 'react-content-loader';
-import { ThemeContextType } from '../@types/theme';
-import { ThemeContext } from '../context/ThemeContext';
+import { ThemeContextType } from '../../@types/theme';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Skeleton = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;

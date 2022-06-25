@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import CartButton from './CartButton';
-import { Container } from './globalStyled';
+import CartButton from '../Buttons/CartButton';
+import { Container } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
 const HeaderStyled = styled.header`
@@ -172,7 +172,7 @@ const Header: FC = () => {
         setTimeout(() => setIsOpen(false), 200);
     };
 
-    if (window.innerWidth <= 768) textLogo = 'GC';
+    if (window.innerWidth <= 540) textLogo = 'GC';
 
     return (
         <HeaderStyled>

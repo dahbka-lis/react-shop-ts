@@ -8,10 +8,10 @@ import ThemeProvider from './context/ThemeContext';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
-        <HashRouter>
-            <ThemeProvider>
+        <ThemeProvider>
+            <HashRouter>
                 <App />
-            </ThemeProvider>
-        </HashRouter>
+            </HashRouter>
+        </ThemeProvider>
     </React.StrictMode>
 );

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { CardItem } from '../@types/card';
-import { Overlay, StyledButton } from './globalStyled';
+import { CardItem } from '../../@types/card';
+import { Overlay, StyledButton } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
 const StyledProductItem = styled.div`

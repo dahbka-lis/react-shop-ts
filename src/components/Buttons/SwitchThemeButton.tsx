@@ -1,8 +1,8 @@
 import { FC, useContext } from 'react';
 import styled from 'styled-components';
-import { ThemeContextType } from '../@types/theme';
-import { ThemeContext } from '../context/ThemeContext';
-import { capitalize } from '../helpers';
+import { ThemeContextType } from '../../@types/theme';
+import { ThemeContext } from '../../context/ThemeContext';
+import { capitalize } from '../../helpers';
 
 // - - - - - - STYLED-COMPONENTS
 const SwitchStyled = styled.label`
@@ -49,7 +49,7 @@ const SwitchStyled = styled.label`
 `;
 // - - - - - - - - - - - - - - -
 
-const SwitchButton: FC = () => {
+const SwitchThemeButton: FC = () => {
     const { theme, switchTheme } = useContext(ThemeContext) as ThemeContextType;
 
     return (
@@ -63,4 +63,4 @@ const SwitchButton: FC = () => {
     );
 };
 
-export default SwitchButton;
+export default SwitchThemeButton;

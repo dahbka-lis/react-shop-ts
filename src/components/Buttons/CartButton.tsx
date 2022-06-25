@@ -1,9 +1,18 @@
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ArrowIcon, StyledButton } from './globalStyled';
+import { ArrowIcon, StyledButton } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
+const CartButtonStyled = styled(StyledButton)`
+    @media (max-width: 1024px) {
+        margin-right: calc(50px + 1%);
+    }
+    @media (max-width: 768px) {
+        font-size: 0.75em;
+    }
+`;
+
 const CartIcon = styled.div`
     display: block;
     width: 20px;
@@ -45,15 +54,6 @@ const CartIcon = styled.div`
     }
 `;
 
-const StyledCartButton = styled(StyledButton)`
-    @media (max-width: 1024px) {
-        margin-right: calc(50px + 1%);
-    }
-    @media (max-width: 768px) {
-        font-size: 0.75em;
-    }
-`;
-
 const CountNumber = styled.span`
     display: inline-block;
     border-right: 1.5px solid #fff;
@@ -72,18 +72,18 @@ const CartButton: FC = () => {
 
     if (pathname === '/cart') {
         return (
-            <StyledCartButton onClick={navigateBack} data-back>
+            <CartButtonStyled onClick={navigateBack} data-back>
                 <ArrowIcon /> Back
-            </StyledCartButton>
+            </CartButtonStyled>
         );
     }
 
     return (
-        <StyledCartButton onClick={navigateToCart} data-cart>
+        <CartButtonStyled onClick={navigateToCart} data-cart>
             <CartIcon />
             <CountNumber>2</CountNumber>
             <span>$125</span>
-        </StyledCartButton>
+        </CartButtonStyled>
     );
 };
 
