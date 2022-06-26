@@ -65,7 +65,7 @@ const Footer: FC = () => {
                         </span>
                     </RightsBlock>
                     <SwitchBlock>
-                        Theme: <SwitchButton />
+                        <SwitchButton />
                     </SwitchBlock>
                 </FooterInner>
             </Container>

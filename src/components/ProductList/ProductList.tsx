@@ -31,12 +31,14 @@ const ProductList: FC<ProductListType> = ({ categoryName }) => {
         setItems(null);
 
         const fetchCardItems = async () => {
-            const cards = await axios.get(`https://fakestoreapi.com/products/category/${categoryName}`);
+            const cards = await axios.get(
+                `https://fakestoreapi.com/products${!categoryName ? '' : `/category/${categoryName}`}`
+            );
 
             if (!ignore) setItems(cards.data);
         };
 
-        if (categoryName) fetchCardItems();
+        fetchCardItems();
 
         return () => {
             ignore = true;

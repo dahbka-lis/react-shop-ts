@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ThemeContextType } from './@types/theme';
 import { ThemeContext } from './context/ThemeContext';
 import CartPage from './pages/Cart';
-import CategoriesPage from './pages/Categories';
+import ProductsPage from './pages/Products';
 import HomePage from './pages/Home';
 import Layout from './pages/Layout';
 import NotFoundPage from './pages/NotFound';
@@ -25,8 +25,11 @@ const App: FC = () => {
             <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="/cart" element={<CartPage />} />
-                <Route path="/products/:categoryName" element={<CategoriesPage />} />
-                <Route path="/products/:categoryName/:id" element={<ProductItemPage />} />
+                <Route path="/products/" element={<ProductsPage />}>
+                    <Route index />
+                    <Route path=":categoryName" />
+                </Route>
+                <Route path="/products/current/:id" element={<ProductItemPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Route>
         </Routes>

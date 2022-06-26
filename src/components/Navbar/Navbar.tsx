@@ -137,6 +137,11 @@ const Navbar: FC = () => {
             <NavbarStyled className={isOpen ? 'active' : ''}>
                 <ul>
                     <li>
+                        <NavLink end to="products" onClick={closeMenu}>
+                            All
+                        </NavLink>
+                    </li>
+                    <li>
                         <NavLink to="products/women's%20clothing" onClick={closeMenu}>
                             Women's
                         </NavLink>

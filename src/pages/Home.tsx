@@ -61,7 +61,7 @@ const HomePage: FC = () => {
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ad quod amet quo fuga expedita,
                     laboriosam suscipit neque inventore quam!
                 </p>
-                <StyledLink to="products/women's clothing">Check products</StyledLink>
+                <StyledLink to="products">Check products</StyledLink>
             </PageInner>
             <Overlay />
         </MainHomeStyled>

@@ -29,7 +29,13 @@ const ProductItemPage: FC<IProductItemPageProps> = () => {
     }, []);
 
     if (product === null) {
-        return <h1>Wait!</h1>;
+        return (
+            <Main>
+                <Container>
+                    <h1>Wait!</h1>
+                </Container>
+            </Main>
+        );
     }
 
     return (

@@ -93,7 +93,7 @@ const CardOverlay = styled(Overlay)`
 
 const ProductItem: FC<CardItem> = ({ title, image, price, category, id }) => {
     const navigate = useNavigate();
-    const url = `/products/${category}/${id}`;
+    const url = `/products/current/${id}`;
 
     const onClickViewMore = () => {
         navigate(url);

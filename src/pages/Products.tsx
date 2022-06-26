@@ -27,19 +27,21 @@ const PageTitle = styled.section`
 // - - - - - - - - - - - - - - -
 
 // Succes categories
-const categories = ["women's clothing", "men's clothing", 'jewelery', 'electronics'];
+const categories = ['', "women's clothing", "men's clothing", 'jewelery', 'electronics'];
 
-const CategoriesPage: FC = () => {
+const ProductsPage: FC = () => {
     const { categoryName = '' } = useParams<string>();
 
-    if (categoryName && !categories.includes(categoryName)) {
+    if (!categories.includes(categoryName)) {
         return <NotFoundPage />;
     }
 
     return (
         <MainCategoriesStyled>
             <Container>
-                <PageTitle>{!!categoryName && <h1>{capitalize(categoryName)}</h1>}</PageTitle>
+                <PageTitle>
+                    <h1>{!categoryName ? 'All products' : capitalize(categoryName)}</h1>
+                </PageTitle>
                 <hr />
                 <ProductList categoryName={categoryName} />
             </Container>
@@ -47,4 +49,4 @@ const CategoriesPage: FC = () => {
     );
 };
 
-export default CategoriesPage;
+export default ProductsPage;
