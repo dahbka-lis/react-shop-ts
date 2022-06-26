@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container, Main, StyledButton } from '../components/globalStyled';
+import { Container, Main, StyledLink } from '../components/globalStyled';
 
 const MainNotFoundStyled = styled(Main)`
     display: flex;
@@ -32,10 +31,6 @@ const PageInner = styled.div`
 `;
 
 const NotFoundPage: FC = () => {
-    const navigate = useNavigate();
-
-    const navigateToHome = () => navigate('/');
-
     return (
         <MainNotFoundStyled>
             <Container>
@@ -46,7 +41,7 @@ const NotFoundPage: FC = () => {
                         You may have incorrectly specified the parameters of our page. We recommend using the links on
                         the site without changing them yourself.
                     </p>
-                    <StyledButton onClick={navigateToHome}>Go home</StyledButton>
+                    <StyledLink to="/">Go home</StyledLink>
                 </PageInner>
             </Container>
         </MainNotFoundStyled>

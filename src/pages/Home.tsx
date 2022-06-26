@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { StyledButton, Main, Overlay } from '../components/globalStyled';
+import { StyledLink, Main, Overlay } from '../components/globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
 const MainHomeStyled = styled(Main)`
@@ -47,17 +46,13 @@ const PageInner = styled.div`
         }
     }
 
-    & button {
+    & a {
         margin-top: 1.5rem;
     }
 `;
 // - - - - - - - - - - - - - - -
 
 const HomePage: FC = () => {
-    const navigate = useNavigate();
-
-    const navigateToProducts = () => navigate("products/women's clothing");
-
     return (
         <MainHomeStyled>
             <PageInner>
@@ -66,7 +61,7 @@ const HomePage: FC = () => {
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ad quod amet quo fuga expedita,
                     laboriosam suscipit neque inventore quam!
                 </p>
-                <StyledButton onClick={navigateToProducts}>Check products</StyledButton>
+                <StyledLink to="products/women's clothing">Check products</StyledLink>
             </PageInner>
             <Overlay />
         </MainHomeStyled>

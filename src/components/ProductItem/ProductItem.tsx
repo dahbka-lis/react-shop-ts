@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { CardItem } from '../../@types/card';
-import { Overlay, StyledButton } from '../globalStyled';
+import { Overlay, StyledLink } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
 const StyledProductItem = styled.div`
@@ -93,9 +93,10 @@ const CardOverlay = styled(Overlay)`
 
 const ProductItem: FC<CardItem> = ({ title, image, price, category, id }) => {
     const navigate = useNavigate();
+    const url = `/products/${category}/${id}`;
 
     const onClickViewMore = () => {
-        navigate(`/products/${category}/${id}`);
+        navigate(url);
     };
 
     return (
@@ -106,7 +107,7 @@ const ProductItem: FC<CardItem> = ({ title, image, price, category, id }) => {
             <ProductInfo>
                 <ProductBuy>
                     <span>$ {price}</span>
-                    <StyledButton onClick={onClickViewMore}>View more</StyledButton>
+                    <StyledLink to={url}>View more</StyledLink>
                 </ProductBuy>
             </ProductInfo>
             <CardOverlay onClick={onClickViewMore}>

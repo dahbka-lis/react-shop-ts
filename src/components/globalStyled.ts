@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -66,17 +67,18 @@ export const ArrowIcon = styled.div`
     }
 `;
 
-export const StyledButton = styled.button`
+export const StyledLink = styled(Link)`
     color: #fff;
     font-size: 0.9em;
     font-weight: 700;
     line-height: 1;
+    text-decoration: none;
 
     border: none;
     border-radius: 50px;
     padding: 0.75em 1.5em;
 
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     background: var(--secondary);

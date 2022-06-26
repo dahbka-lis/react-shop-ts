@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { ArrowIcon, StyledButton } from '../globalStyled';
+import { ArrowIcon, StyledLink } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-const CartButtonStyled = styled(StyledButton)`
+const CartLink = styled(StyledLink)`
     @media (max-width: 1024px) {
         margin-right: calc(50px + 1%);
     }
@@ -64,26 +64,22 @@ const CountNumber = styled.span`
 // - - - - - - - - - - - - - - -
 
 const CartButton: FC = () => {
-    const navigate = useNavigate();
     const { pathname } = useLocation();
-
-    const navigateToCart = (): void => navigate('/cart');
-    const navigateBack = (): void => navigate(-1);
 
     if (pathname === '/cart') {
         return (
-            <CartButtonStyled onClick={navigateBack} data-back>
+            <CartLink to="women's clothing">
                 <ArrowIcon /> Back
-            </CartButtonStyled>
+            </CartLink>
         );
     }
 
     return (
-        <CartButtonStyled onClick={navigateToCart} data-cart>
+        <CartLink to="cart">
             <CartIcon />
             <CountNumber>2</CountNumber>
             <span>$125</span>
-        </CartButtonStyled>
+        </CartLink>
     );
 };
 
