@@ -26,7 +26,7 @@ const ProductItemPage: FC<IProductItemPageProps> = () => {
         return () => {
             ignore = true;
         };
-    }, []);
+    }, [id]);
 
     if (product === null) {
         return (
