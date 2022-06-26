@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, Main } from '../components/globalStyled';
@@ -31,6 +31,10 @@ const categories = ['', "women's clothing", "men's clothing", 'jewelery', 'elect
 
 const ProductsPage: FC = () => {
     const { categoryName = '' } = useParams<string>();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
 
     if (!categories.includes(categoryName)) {
         return <NotFoundPage />;
