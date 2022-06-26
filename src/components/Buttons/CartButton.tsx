@@ -68,7 +68,7 @@ const CartButton: FC = () => {
 
     if (pathname === '/cart') {
         return (
-            <CartLink to="women's clothing">
+            <CartLink to="products/women's clothing">
                 <ArrowIcon /> Back
             </CartLink>
         );
