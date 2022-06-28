@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import CartButton from '../Buttons/CartButton';
@@ -48,7 +47,6 @@ const HeaderInner = styled.div`
 type HeaderLogo = 'GRACECHAPEL' | 'GC';
 
 const Header: FC = () => {
-    const { pathname } = useLocation();
     let textLogo: HeaderLogo = 'GRACECHAPEL';
 
     if (window.innerWidth <= 540) textLogo = 'GC';

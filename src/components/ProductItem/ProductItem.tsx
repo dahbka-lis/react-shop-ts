@@ -5,7 +5,7 @@ import { CardItem } from '../../@types/card';
 import { Overlay, StyledLink } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-const StyledProductItem = styled.div`
+const ProductItemStyled = styled.div`
     max-width: 500px;
     border-radius: 10px;
     margin-bottom: 4rem;
@@ -102,7 +102,7 @@ const ProductItem: FC<CardItem> = ({ title, image, price, category, id }) => {
     };
 
     return (
-        <StyledProductItem>
+        <ProductItemStyled>
             <ImageBlock>
                 <img src={image} alt="" />
             </ImageBlock>
@@ -115,7 +115,7 @@ const ProductItem: FC<CardItem> = ({ title, image, price, category, id }) => {
             <CardOverlay onClick={onClickViewMore}>
                 <h3>{title}</h3>
             </CardOverlay>
-        </StyledProductItem>
+        </ProductItemStyled>
     );
 };
 

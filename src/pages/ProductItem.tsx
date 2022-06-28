@@ -32,7 +32,9 @@ const ProductItemPage: FC<IProductItemPageProps> = () => {
         return (
             <Main>
                 <Container>
-                    <h1>Wait!</h1>
+                    <PageInner>
+                        <h1>Wait!</h1>
+                    </PageInner>
                 </Container>
             </Main>
         );
