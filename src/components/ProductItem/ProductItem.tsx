@@ -67,6 +67,8 @@ const ProductBuy = styled.div`
 `;
 
 const CardOverlay = styled(Overlay)`
+    position: absolute;
+
     display: flex;
     justify-content: center;
     align-items: center;

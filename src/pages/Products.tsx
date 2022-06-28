@@ -1,8 +1,10 @@
-import { FC, useEffect } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container, Main } from '../components/globalStyled';
+import { ThemeContextType } from '../@types/theme';
+import { Container, Main, Overlay } from '../components/globalStyled';
 import ProductList from '../components/ProductList';
+import { ThemeContext } from '../context/ThemeContext';
 import { capitalize } from '../helpers/helpers';
 import NotFoundPage from './NotFound';
 
@@ -22,7 +24,13 @@ const ProductsMain = styled(Main)`
 `;
 
 const ProductsContainer = styled(Container)`
-    background-color: var(--primary);
+    position: relative;
+    z-index: 9;
+    background-color: var(--primary-light);
+
+    @media (max-width: 1200px) {
+        background-color: var(--primary-light);
+    }
 `;
 
 const PageTitle = styled.section`
@@ -39,6 +47,7 @@ const categories = ['', "women's clothing", "men's clothing", 'jewelery', 'elect
 
 const ProductsPage: FC = () => {
     const { categoryName = '' } = useParams<string>();
+    const { theme } = useContext(ThemeContext) as ThemeContextType;
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -57,6 +66,7 @@ const ProductsPage: FC = () => {
                 <hr />
                 <ProductList categoryName={categoryName} />
             </ProductsContainer>
+            {theme === 'dark' && <Overlay />}
         </ProductsMain>
     );
 };

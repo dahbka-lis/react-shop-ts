@@ -8,6 +8,9 @@ const FooterStyled = styled.footer`
     color: var(--alt);
     font-size: 0.75em;
     padding: 2em 0;
+
+    position: relative;
+    z-index: 10;
     flex: 0 0 auto;
 
     background-color: var(--primary);

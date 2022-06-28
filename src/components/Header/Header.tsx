@@ -61,7 +61,7 @@ const Header: FC = () => {
                         <Link to="/">{textLogo}</Link>
                     </TextLogo>
                     <Navbar />
-                    {!!pathname.slice(1) && <CartButton />}
+                    <CartButton />
                 </HeaderInner>
             </Container>
         </HeaderStyled>

@@ -7,8 +7,8 @@ const SkeletonList = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
     const [contentWidth, setContentWidth] = useState((window.innerWidth >= 540 ? 540 : window.innerWidth) - 50);
 
-    const bgColor = theme === 'dark' ? '#6b6b6b' : '#f3f3f3';
-    const fgColor = theme === 'dark' ? '#555555' : '#e4e4e4';
+    const bgColor = theme === 'dark' ? '#6b6b6b' : '#ebebeb';
+    const fgColor = theme === 'dark' ? '#555555' : '#d8d8d8';
 
     useEffect(() => {
         const resizeWindowHandler = () => {
