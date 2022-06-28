@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { CardItem } from '../../@types/card';
 import ProductItem from '../ProductItem';
-import Skeleton from '../ProductItem/Skeleton';
+import SkeletonList from '../ProductItem/SkeletonList';
 
 const ProductListStyled = styled.div`
     display: flex;
@@ -47,9 +47,7 @@ const ProductList: FC<ProductListType> = ({ categoryName }) => {
 
     return (
         <ProductListStyled>
-            {items
-                ? items.map(item => <ProductItem {...item} key={item.id} />)
-                : [...new Array(4)].map((_, i) => <Skeleton key={i} />)}
+            {items ? items.map(item => <ProductItem {...item} key={item.id} />) : <SkeletonList />}
         </ProductListStyled>
     );
 };

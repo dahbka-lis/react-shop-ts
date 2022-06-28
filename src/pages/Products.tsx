@@ -7,8 +7,11 @@ import { capitalize } from '../helpers/helpers';
 import NotFoundPage from './NotFound';
 
 // - - - - - - STYLED-COMPONENTS
-const MainCategoriesStyled = styled(Main)`
-    padding-top: 2rem;
+const ProductsMain = styled(Main)`
+    padding-top: 0;
+    background: url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
+        no-repeat center / cover;
+    background-attachment: fixed;
 
     hr {
         margin-top: 1rem;
@@ -18,8 +21,13 @@ const MainCategoriesStyled = styled(Main)`
     }
 `;
 
+const ProductsContainer = styled(Container)`
+    background-color: var(--primary);
+`;
+
 const PageTitle = styled.section`
     h1 {
+        padding-top: 1em;
         font-size: 3em;
         text-align: center;
     }
@@ -34,22 +42,22 @@ const ProductsPage: FC = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    });
+    }, [categoryName]);
 
     if (!categories.includes(categoryName)) {
         return <NotFoundPage />;
     }
 
     return (
-        <MainCategoriesStyled>
-            <Container>
+        <ProductsMain>
+            <ProductsContainer>
                 <PageTitle>
                     <h1>{!categoryName ? 'All products' : capitalize(categoryName)}</h1>
                 </PageTitle>
                 <hr />
                 <ProductList categoryName={categoryName} />
-            </Container>
-        </MainCategoriesStyled>
+            </ProductsContainer>
+        </ProductsMain>
     );
 };
 

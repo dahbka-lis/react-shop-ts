@@ -16,7 +16,7 @@ const StyledProductItem = styled.div`
     flex: 1 1 50%;
 
     background-color: var(--primary);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.22);
 
     hr {
         margin-block: 1rem;

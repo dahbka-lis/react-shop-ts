@@ -16,8 +16,7 @@ body {
 
 body {
     --primary: #fff;
-    --primary-light: #ecfdf5;
-    --primary: #fff;
+    --primary-light: #a7f3d0;
     --alt: #212121;
     --secondary: #10b981;
     --secondary-light: #3ce39f;
@@ -32,8 +31,8 @@ body {
 }
 
 body.dark {
-    --primary: #212121;
-    --primary-light: #333333;
+    --primary: #282828;
+    --primary-light: #212121;
     --alt: #fff;
 }
 

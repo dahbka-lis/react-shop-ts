@@ -5,11 +5,13 @@ import SwitchButton from '../Buttons/SwitchThemeButton';
 
 // - - - - - - STYLED-COMPONENTS
 const FooterStyled = styled.footer`
-    flex: 0 0 auto;
-    background-color: var(--primary);
-    padding: 2em 0;
-    font-size: 0.75em;
     color: var(--alt);
+    font-size: 0.75em;
+    padding: 2em 0;
+    flex: 0 0 auto;
+
+    background-color: var(--primary);
+    box-shadow: 0px -3px 15px rgba(0, 0, 0, 0.15);
 
     @media (max-width: 768px) {
         padding: 1em 0;
