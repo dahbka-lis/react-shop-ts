@@ -55,8 +55,7 @@ img {
 
 ::-webkit-scrollbar-thumb {
     background: var(--secondary-light);
-    border-radius: 20px;
-    transition: background 0.2s ease;
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
