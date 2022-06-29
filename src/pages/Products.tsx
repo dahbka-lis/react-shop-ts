@@ -13,8 +13,7 @@ import NotFoundPage from './NotFound';
 const ProductsMain = styled(Main)`
     padding-top: 0;
     background: url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
-        no-repeat center / cover;
-    background-attachment: fixed;
+        no-repeat center / cover fixed;
 
     hr {
         margin-top: 1rem;
@@ -36,7 +35,7 @@ const ProductsContainer = styled(Container)`
 
 const PageTitle = styled.section`
     h1 {
-        padding-top: 1em;
+        padding-top: 0.75em;
         font-size: 3em;
         text-align: center;
     }

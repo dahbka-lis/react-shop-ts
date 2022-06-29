@@ -6,17 +6,10 @@ import ProductItem from '../ProductItem';
 import SkeletonList from '../SkeletonList';
 
 const ProductListStyled = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: stretch;
-
-    @media (max-width: 1100px) {
-        flex-wrap: nowrap;
-        flex-direction: column;
-        align-items: center;
-        justify-content: stretch;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 2rem;
+    justify-content: center;
 `;
 
 type ProductListType = {

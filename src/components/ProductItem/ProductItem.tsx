@@ -7,14 +7,12 @@ import { CardItem } from '../../@types/card';
 const ProductItemStyled = styled.div`
     color: var(--alt);
 
-    max-width: 500px;
     border-radius: 10px;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     position: relative;
 
     display: flex;
     flex-direction: column;
-    flex: 1 1 50%;
 
     cursor: pointer;
     background-color: var(--primary);
