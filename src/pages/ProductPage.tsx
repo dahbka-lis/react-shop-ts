@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { CardItem } from '../@types/card';
 import { Container, Main } from '../components/globalStyled';
+import LoaderPage from './Loader';
 
 type IProductItemPageProps = {};
 
@@ -18,10 +19,10 @@ const ProductItemPage: FC<IProductItemPageProps> = () => {
 
         const fetchProduct = async () => {
             const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
-            setProduct(response.data);
+            if (!ignore) setProduct(response.data);
         };
 
-        if (!ignore) fetchProduct();
+        fetchProduct();
 
         return () => {
             ignore = true;
@@ -29,20 +30,14 @@ const ProductItemPage: FC<IProductItemPageProps> = () => {
     }, [id]);
 
     if (product === null) {
-        return (
-            <Main>
-                <Container>
-                    <PageInner>
-                        <h1>Wait!</h1>
-                    </PageInner>
-                </Container>
-            </Main>
-        );
+        return <LoaderPage />;
     }
 
     return (
         <Main>
-            <Container>{product.title}</Container>
+            <Container>
+                <PageInner>{product.title}</PageInner>
+            </Container>
         </Main>
     );
 };

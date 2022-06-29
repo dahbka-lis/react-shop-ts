@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { CardItem } from '../../@types/card';
-import { Overlay, StyledLink } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductItemStyled = styled.div`
@@ -15,12 +14,17 @@ const ProductItemStyled = styled.div`
     flex-direction: column;
     flex: 1 1 50%;
 
+    cursor: pointer;
     background-color: var(--primary);
-    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.116);
 
     hr {
         margin-block: 1rem;
         opacity: 0.4;
+    }
+
+    &:hover img {
+        opacity: 0.7;
     }
 
     @media (max-width: 1100px) {
@@ -29,20 +33,14 @@ const ProductItemStyled = styled.div`
 `;
 
 const ImageBlock = styled.div`
-    max-height: 200px;
+    max-height: 250px;
 
     img {
         width: 100%;
-        height: 200px;
+        height: 250px;
         border-radius: 10px 10px 0 0;
         object-fit: cover;
-
-        cursor: pointer;
         transition: opacity 0.2s ease;
-
-        &:hover {
-            opacity: 0.7;
-        }
     }
 `;
 
@@ -64,57 +62,34 @@ const ProductBuy = styled.div`
     span {
         font-size: 1.2em;
     }
-`;
-
-const CardOverlay = styled(Overlay)`
-    position: absolute;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    border-radius: 10px;
-    cursor: pointer;
-
-    opacity: 0;
-    background-color: #00000070;
-    transition: opacity 0.2s ease-in-out;
-
-    &:hover {
-        opacity: 1;
-    }
 
     h3 {
         color: #fff;
-        max-width: 380px;
-        opacity: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 2em;
     }
 `;
 // - - - - - - - - - - - - - - -
 
-const ProductItem: FC<CardItem> = ({ title, image, price, category, id }) => {
+const ProductItem: FC<CardItem> = ({ title, image, price, id }) => {
     const navigate = useNavigate();
     const url = `/products/current/${id}`;
 
-    const onClickViewMore = () => {
-        navigate(url);
-    };
+    const onClickViewMore = () => navigate(url);
 
     return (
-        <ProductItemStyled>
+        <ProductItemStyled onClick={onClickViewMore}>
             <ImageBlock>
                 <img src={image} alt="" />
             </ImageBlock>
             <ProductInfo>
                 <ProductBuy>
-                    <span>$ {price}</span>
-                    <StyledLink to={url}>View more</StyledLink>
+                    <h3>{title}</h3>
+                    <span>$&nbsp;{price}</span>
                 </ProductBuy>
             </ProductInfo>
-            <CardOverlay onClick={onClickViewMore}>
-                <h3>{title}</h3>
-            </CardOverlay>
         </ProductItemStyled>
     );
 };

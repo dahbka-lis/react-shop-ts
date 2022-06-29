@@ -7,8 +7,8 @@ const SkeletonList = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
     const [contentWidth, setContentWidth] = useState((window.innerWidth >= 540 ? 540 : window.innerWidth) - 50);
 
-    const bgColor = theme === 'dark' ? '#6b6b6b' : '#ebebeb';
-    const fgColor = theme === 'dark' ? '#555555' : '#d8d8d8';
+    const bgColor = theme === 'dark' ? '#6b6b6b' : '#d8d8d8';
+    const fgColor = theme === 'dark' ? '#555555' : '#bbbbbb';
 
     useEffect(() => {
         const resizeWindowHandler = () => {
@@ -27,16 +27,16 @@ const SkeletonList = () => {
             {[...new Array(4)].map((_, i) => (
                 <ContentLoader
                     key={i}
-                    speed={1.7}
+                    speed={1}
                     width={contentWidth}
-                    height={340}
-                    viewBox={`0 0 ${contentWidth} 340`}
+                    height={390}
+                    viewBox={`0 0 ${contentWidth} 390`}
                     backgroundColor={bgColor}
                     foregroundColor={fgColor}
                 >
-                    <rect x="0" y="0" rx="10" ry="10" width="100%" height="200" />
-                    <rect x="20" y="223" rx="15" ry="15" width="71" height="30" />
-                    <rect x={`${contentWidth - 135}`} y="220" rx="20" ry="20" width="115" height="36" />
+                    <rect x="0" y="0" rx="10" ry="10" width="100%" height="250" />
+                    <rect x="20" y="270" rx="20" ry="20" width={`${contentWidth - 170}`} height="36" />
+                    <rect x={`${contentWidth - 100}`} y="270" rx="20" ry="20" width="80" height="36" />
                 </ContentLoader>
             ))}
         </>

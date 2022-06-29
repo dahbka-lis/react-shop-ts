@@ -7,7 +7,7 @@ import ProductsPage from './pages/Products';
 import HomePage from './pages/Home';
 import Layout from './pages/Layout';
 import NotFoundPage from './pages/NotFound';
-import ProductItemPage from './pages/ProductItem';
+import ProductItemPage from './pages/ProductPage';
 
 const App: FC = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;

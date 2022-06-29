@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { CardItem } from '../../@types/card';
 import ProductItem from '../ProductItem';
-import SkeletonList from '../ProductItem/SkeletonList';
+import SkeletonList from '../SkeletonList';
 
 const ProductListStyled = styled.div`
     display: flex;
@@ -24,21 +24,21 @@ type ProductListType = {
 };
 
 const ProductList: FC<ProductListType> = ({ categoryName }) => {
-    const [items, setItems] = useState<CardItem[] | null>(null);
+    const [cards, setcards] = useState<CardItem[] | null>(null);
 
     useEffect(() => {
         let ignore = false;
-        setItems(null);
+        setcards(null);
 
-        const fetchCardItems = async () => {
+        const fetchCardcards = async () => {
             const cards = await axios.get(
                 `https://fakestoreapi.com/products${!categoryName ? '' : `/category/${categoryName}`}`
             );
 
-            if (!ignore) setItems(cards.data);
+            if (!ignore) setcards(cards.data);
         };
 
-        fetchCardItems();
+        fetchCardcards();
 
         return () => {
             ignore = true;
@@ -47,7 +47,7 @@ const ProductList: FC<ProductListType> = ({ categoryName }) => {
 
     return (
         <ProductListStyled>
-            {items ? items.map(item => <ProductItem {...item} key={item.id} />) : <SkeletonList />}
+            {cards ? cards.map(cards => <ProductItem {...cards} key={cards.id} />) : <SkeletonList />}
         </ProductListStyled>
     );
 };

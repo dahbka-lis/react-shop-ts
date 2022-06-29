@@ -73,6 +73,7 @@ export const StyledLink = styled(Link)`
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
+    user-select: none;
 
     border: none;
     border-radius: 50px;
