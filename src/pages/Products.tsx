@@ -2,6 +2,7 @@ import { FC, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ThemeContextType } from '../@types/theme';
+import ScrollButton from '../components/Buttons/ScrollButton';
 import { Container, Main, Overlay } from '../components/globalStyled';
 import ProductList from '../components/ProductList';
 import { ThemeContext } from '../context/ThemeContext';
@@ -73,6 +74,7 @@ const ProductsPage: FC = () => {
                 <ProductList categoryName={categoryName} setError={setIsError} />
             </ProductsContainer>
             {theme === 'dark' && <Overlay />}
+            <ScrollButton />
         </ProductsMain>
     );
 };

@@ -63,7 +63,7 @@ export const ArrowIcon = styled.div`
         height: 2px;
 
         bottom: 9px;
-        background: currentColor;
+        background: #fff;
     }
 `;
 
