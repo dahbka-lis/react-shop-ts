@@ -5,6 +5,8 @@ import { CardItem } from '../../@types/card';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductItemStyled = styled.div`
+    color: var(--alt);
+
     max-width: 500px;
     border-radius: 10px;
     margin-bottom: 4rem;
@@ -64,7 +66,6 @@ const ProductBuy = styled.div`
     }
 
     h3 {
-        color: #fff;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

@@ -50,7 +50,6 @@ const ProductsPage: FC = () => {
     const { categoryName = '' } = useParams<string>();
     const { theme } = useContext(ThemeContext) as ThemeContextType;
     const [isError, setIsError] = useState(false);
-    console.log(isError);
 
     useEffect(() => {
         window.scrollTo(0, 0);
