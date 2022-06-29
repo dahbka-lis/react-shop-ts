@@ -32,7 +32,7 @@ body {
 
 body.dark {
     --primary: #282828;
-    --primary-light: #212121;
+    --primary-light: #202020;
     --alt: #fff;
 }
 
@@ -43,4 +43,22 @@ body * {
 img {
     width: 100%;
     height: auto;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-light);
+    border-radius: 20px;
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
 }
