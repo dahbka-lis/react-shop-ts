@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { CardItem } from '../../@types/card';
 import ProductItem from '../ProductItem';
@@ -21,21 +21,28 @@ const ProductListStyled = styled.div`
 
 type ProductListType = {
     categoryName: string;
+    setError: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ProductList: FC<ProductListType> = ({ categoryName }) => {
-    const [cards, setcards] = useState<CardItem[] | null>(null);
+const ProductList: FC<ProductListType> = ({ categoryName, setError }) => {
+    const [cards, setCards] = useState<CardItem[] | null>(null);
 
     useEffect(() => {
         let ignore = false;
-        setcards(null);
+
+        setCards(null);
+        setError(false);
 
         const fetchCardcards = async () => {
-            const cards = await axios.get(
-                `https://fakestoreapi.com/products${!categoryName ? '' : `/category/${categoryName}`}`
-            );
+            try {
+                const cards = await axios.get(
+                    `https://fakestoreapi.com/products${!categoryName ? '' : `/category/${categoryName}`}`
+                );
 
-            if (!ignore) setcards(cards.data);
+                if (!ignore) setCards(cards.data);
+            } catch (error) {
+                setError(true);
+            }
         };
 
         fetchCardcards();
@@ -43,7 +50,7 @@ const ProductList: FC<ProductListType> = ({ categoryName }) => {
         return () => {
             ignore = true;
         };
-    }, [categoryName]);
+    }, [categoryName, setError]);
 
     return (
         <ProductListStyled>
