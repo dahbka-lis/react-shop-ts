@@ -25,10 +25,8 @@ const App: FC = () => {
             <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="/cart" element={<CartPage />} />
-                <Route path="/products/" element={<ProductsPage />}>
-                    <Route index />
-                    <Route path=":categoryName" />
-                </Route>
+                <Route path="/products/" element={<ProductsPage />} />
+                <Route path="/products/:categoryName" element={<ProductsPage />} />
                 <Route path="/products/current/:id" element={<ProductItemPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Route>
