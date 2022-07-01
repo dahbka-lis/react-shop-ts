@@ -1,93 +1,98 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { CardItem } from '../../@types/card';
+import { StyledLink } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-const ProductItemStyled = styled.div`
+const ProductItemStyled = styled(Link)`
     color: var(--alt);
+    text-decoration: none;
 
     border-radius: 10px;
     margin-bottom: 2rem;
     position: relative;
 
-    display: flex;
-    flex-direction: column;
-
+    overflow: hidden;
     cursor: pointer;
+
     background-color: var(--primary);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.116);
 
-    hr {
-        margin-block: 1rem;
-        opacity: 0.4;
-    }
-
-    &:hover img {
-        opacity: 0.7;
-    }
-
-    @media (max-width: 1100px) {
-        width: 100%;
-    }
-`;
-
-const ImageBlock = styled.div`
-    max-height: 250px;
-
-    img {
+    & > img {
         width: 100%;
         height: 250px;
-        border-radius: 10px 10px 0 0;
         object-fit: cover;
-        transition: opacity 0.2s ease;
+
+        filter: brightness(0.9);
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    &:hover > img {
+        filter: brightness(0.65);
+        transform: scale(1.1);
+    }
+
+    & > span {
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: 700;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover > span {
+        opacity: 1;
     }
 `;
 
 const ProductInfo = styled.div`
-    padding: 1.25rem;
+    padding: 0.75rem 1.2rem;
     border-radius: 0 0 10px 10px;
 
     position: relative;
     z-index: 11;
 
     background-color: var(--primary);
-`;
 
-const ProductBuy = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    span {
-        font-size: 1.2em;
-    }
+        a {
+            font-size: 1em;
+        }
 
-    h3 {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-right: 2em;
+        h3 {
+            font-size: 1em;
+            margin-right: 2em;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 `;
 // - - - - - - - - - - - - - - -
 
 const ProductItem: FC<CardItem> = ({ title, image, price, id }) => {
-    const navigate = useNavigate();
     const url = `/products/current/${id}`;
-
-    const onClickViewMore = () => navigate(url);
-
     return (
-        <ProductItemStyled onClick={onClickViewMore}>
-            <ImageBlock>
-                <img src={image} alt="" />
-            </ImageBlock>
+        <ProductItemStyled to={url}>
+            <img src={image} alt="" />
+            <span>Click to view more</span>
             <ProductInfo>
-                <ProductBuy>
+                <div>
                     <h3>{title}</h3>
-                    <span>$&nbsp;{price}</span>
-                </ProductBuy>
+                    <StyledLink to={url}>$&nbsp;{price}</StyledLink>
+                </div>
             </ProductInfo>
         </ProductItemStyled>
     );

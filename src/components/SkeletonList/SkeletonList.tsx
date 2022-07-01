@@ -36,8 +36,8 @@ const SkeletonList: FC = () => {
                     foregroundColor={fgColor}
                 >
                     <rect x="0" y="0" rx="10" ry="10" width="100%" height="250" />
-                    <rect x="20" y="270" rx="15" ry="15" width={`${contentWidth - 150}`} height="26" />
-                    <rect x={`${contentWidth - 80}`} y="270" rx="15" ry="15" width="60" height="26" />
+                    <rect x="20" y="272" rx="15" ry="15" width={`${contentWidth - 160}`} height="26" />
+                    <rect x={`${contentWidth - 110}`} y="265" rx="22" ry="22" width="90" height="40" />
                 </ContentLoader>
             ))}
         </>
