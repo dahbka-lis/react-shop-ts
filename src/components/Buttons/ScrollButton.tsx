@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useRef, BaseSyntheticEvent } from 'react';
 import styled from 'styled-components';
 import { ArrowIcon } from '../globalStyled';
 
@@ -8,48 +8,51 @@ const ScrollButtonStyled = styled.div`
     border-radius: 100%;
 
     position: fixed;
-    bottom: 75px;
-    right: 13px;
+    bottom: 76px;
+    right: 17px;
     z-index: 12;
 
-    border: 3px solid var(--secondary);
-    background-color: var(--primary-light);
+    background-color: var(--secondary);
     cursor: pointer;
 
-    opacity: 0.7;
-    transition: box-shadow 0.2s ease;
+    opacity: 0;
+    box-shadow: 0 3px 15px #00000036;
+    transition: box-shadow 0.2s ease, opacity 0.15s ease-in;
 
     &:hover {
-        opacity: 0.9;
         box-shadow: 0 0 15px var(--secondary-light);
+    }
+
+    &.show {
+        opacity: 1;
     }
 `;
 
 const ArrowIconTop = styled(ArrowIcon)`
     position: absolute;
-    top: 68%;
-    left: 53%;
+    top: 65%;
+    left: 52%;
     transform: translate(-50%, -50%) scale(1.5) rotate(90deg);
 
     &::after {
-        border-color: var(--alt);
+        border-color: #fff;
         border-radius: 2px;
     }
 
     &::before {
-        background-color: var(--alt);
+        background-color: #fff;
     }
 `;
 
 const ScrollButton: FC = () => {
     const [visible, setVisible] = useState(false);
+    const btnRef = useRef<HTMLDivElement>(null);
 
     const changeVisible = () => {
-        if (window.scrollY >= 300) setVisible(true);
-        else setVisible(false);
+        setVisible(window.scrollY >= 300);
     };
 
-    const scrollToTop = (e: React.MouseEvent) => {
+    const scrollToTop = (e: BaseSyntheticEvent) => {
         e.stopPropagation();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -62,10 +65,15 @@ const ScrollButton: FC = () => {
         };
     }, []);
 
-    if (!visible) return <></>;
+    useEffect(() => {
+        if (btnRef.current) {
+            const btnClasses = btnRef.current.classList;
+            visible ? btnClasses.add('show') : btnClasses.remove('show');
+        }
+    }, [visible]);
 
     return (
-        <ScrollButtonStyled onClick={scrollToTop}>
+        <ScrollButtonStyled ref={btnRef} onClick={scrollToTop}>
             <ArrowIconTop />
         </ScrollButtonStyled>
     );
