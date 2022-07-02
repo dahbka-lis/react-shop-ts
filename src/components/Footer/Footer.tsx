@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Container } from '../globalStyled';
+import { Container, MyLink } from '../globalStyled';
 import SwitchButton from '../Buttons/SwitchThemeButton';
 
 // - - - - - - STYLED-COMPONENTS
@@ -14,7 +14,7 @@ const FooterStyled = styled.footer`
     flex: 0 0 auto;
 
     background-color: var(--primary);
-    box-shadow: 0px -3px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
     @media (max-width: 768px) {
         padding: 1em 0;
@@ -29,16 +29,6 @@ const FooterInner = styled.div`
 
 const RightsBlock = styled.div`
     margin-right: 1em;
-
-    a {
-        color: var(--secondary);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--secondary-light);
-            text-decoration: underline;
-        }
-    }
 `;
 
 const SwitchBlock = styled.div`
@@ -63,9 +53,14 @@ const Footer: FC = () => {
                     <RightsBlock>
                         <span>
                             Copyright © {new Date().getFullYear()} Test project by{' '}
-                            <a href="https://github.com/DaXBka" title="GitHub profile" target="_blank" rel="noreferrer">
+                            <MyLink
+                                href="https://github.com/DaXBka"
+                                title="GitHub profile"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 DaXBka
-                            </a>
+                            </MyLink>
                             .
                         </span>
                     </RightsBlock>

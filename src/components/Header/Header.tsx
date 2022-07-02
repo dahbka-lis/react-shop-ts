@@ -16,7 +16,7 @@ const HeaderStyled = styled.header`
     z-index: 20;
 
     background: var(--primary);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 `;
 
 const TextLogo = styled.span`

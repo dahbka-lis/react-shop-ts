@@ -99,6 +99,37 @@ export const StyledLink = styled(Link)`
     }
 `;
 
+export const StyledButton = styled.button`
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 700;
+    line-height: 1;
+    user-select: none;
+
+    border: none;
+    border-radius: 50px;
+    padding: 0.75em 1.5em;
+
+    display: inline-flex;
+    align-items: center;
+
+    background: var(--secondary);
+    transition: background 0.1s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background: #0c9b6b;
+    }
+
+    &:active {
+        background: var(--secondary-tp);
+    }
+
+    & span {
+        padding-top: 0.1em;
+    }
+`;
+
 export const Overlay = styled.div`
     width: 100%;
     height: 100%;
@@ -108,4 +139,14 @@ export const Overlay = styled.div`
     z-index: 8;
 
     background-color: #00000060;
+`;
+
+export const MyLink = styled.a`
+    color: var(--secondary);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--secondary-light);
+        text-decoration: underline;
+    }
 `;
