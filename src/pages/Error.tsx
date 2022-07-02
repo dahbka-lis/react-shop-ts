@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Container, Main } from '../components/globalStyled';
 
+// - - - - - - STYLED-COMPONENTS
 const MainErrorPageStyled = styled(Main)`
     display: flex;
     justify-content: center;
@@ -25,6 +26,7 @@ const PageInner = styled.div`
         margin-bottom: 1.5em;
     }
 `;
+// - - - - - - - - - - - - - - -
 
 const ErrorPage: FC = () => {
     return (

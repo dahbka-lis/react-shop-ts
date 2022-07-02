@@ -8,7 +8,9 @@ import LoaderPage from './Loader';
 
 type IProductItemPageProps = {};
 
+// - - - - - - STYLED-COMPONENTS
 const PageInner = styled.div``;
+// - - - - - - - - - - - - - - -
 
 const ProductItemPage: FC<IProductItemPageProps> = () => {
     const { id } = useParams();

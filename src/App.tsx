@@ -13,11 +13,7 @@ const App: FC = () => {
     const { theme } = useContext(ThemeContext) as ThemeContextType;
 
     useEffect(() => {
-        if (theme === 'dark') {
-            document.body.classList.add('dark');
-        } else {
-            document.body.classList.remove('dark');
-        }
+        theme === 'dark' ? document.body.classList.add('dark') : document.body.classList.remove('dark');
     }, [theme]);
 
     return (

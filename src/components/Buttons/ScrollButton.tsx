@@ -2,6 +2,7 @@ import { FC, useState, useEffect, useRef, BaseSyntheticEvent } from 'react';
 import styled from 'styled-components';
 import { ArrowIcon } from '../globalStyled';
 
+// - - - - - - STYLED-COMPONENTS
 const ScrollButtonStyled = styled.div`
     width: 50px;
     height: 50px;
@@ -43,6 +44,7 @@ const ArrowIconTop = styled(ArrowIcon)`
         background-color: #fff;
     }
 `;
+// - - - - - - - - - - - - - - -
 
 const ScrollButton: FC = () => {
     const [visible, setVisible] = useState(false);

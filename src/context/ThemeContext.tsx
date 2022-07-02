@@ -20,8 +20,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 
     // Func-helper for easy change theme without useless IF ELSE in other components
     const switchTheme = () => {
-        if (theme === 'light') setTheme('dark');
-        else setTheme('light');
+        setTheme(theme === 'light' ? 'dark' : 'light');
     };
 
     return <ThemeContext.Provider value={{ theme, setTheme, switchTheme }}>{children}</ThemeContext.Provider>;

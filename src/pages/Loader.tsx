@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Main } from '../components/globalStyled';
 
+// - - - - - - STYLED-COMPONENTS
 const LoaderInner = styled.div`
     position: absolute;
     inset: 0;
@@ -47,6 +48,7 @@ const LoaderIcon = styled.div`
         opacity: 0.3;
     }
 `;
+// - - - - - - - - - - - - - - -
 
 const LoaderPage: FC = () => {
     return (

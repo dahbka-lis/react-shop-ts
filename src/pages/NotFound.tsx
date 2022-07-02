@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Container, Main, StyledLink } from '../components/globalStyled';
 
+// - - - - - - STYLED-COMPONENTS
 const MainNotFoundStyled = styled(Main)`
     display: flex;
     justify-content: center;
@@ -29,6 +30,7 @@ const PageInner = styled.div`
         margin: 0 auto;
     }
 `;
+// - - - - - - - - - - - - - - -
 
 const NotFoundPage: FC = () => {
     return (
