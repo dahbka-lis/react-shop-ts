@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { FC, useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { CardItem } from '../@types/card';
+import { IProduct } from '../@types/product';
+import axios from '../axios';
 import { ArrowIcon, Container, Main, StyledButton } from '../components/globalStyled';
 import ProductAside from '../components/ProductAside';
 import LoaderPage from './Loader';
@@ -53,25 +53,19 @@ const PageInner = styled.div`
 const ProductItemPage: FC = () => {
     const navigate = useNavigate();
     const { id = '' } = useParams();
-    const [product, setProduct] = useState<CardItem | null>(null);
+    const [product, setProduct] = useState<IProduct | null>(null);
 
     const navigateBack = () => {
         navigate(-1);
     };
 
     useEffect(() => {
-        let ignore = false;
-
         const fetchProduct = async () => {
-            const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
-            if (!ignore) setProduct(response.data);
+            const response = await axios.get(`${id}`);
+            setProduct(response.data);
         };
 
         if (id !== '') fetchProduct();
-
-        return () => {
-            ignore = true;
-        };
     }, [id]);
 
     if (product === null) {

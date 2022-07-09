@@ -1,7 +1,6 @@
-import axios from 'axios';
-import React, { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
-import { CardItem } from '../../@types/card';
+import { IProduct } from '../../@types/product';
 import ProductItem from '../ProductItem';
 import SkeletonList from '../SkeletonList';
 
@@ -15,41 +14,14 @@ const ProductListStyled = styled.div`
 // - - - - - - - - - - - - - - -
 
 type ProductListType = {
-    categoryName: string;
-    setError: React.Dispatch<React.SetStateAction<boolean>>;
+    products: IProduct[];
+    loading: boolean;
 };
 
-const ProductList: FC<ProductListType> = ({ categoryName, setError }) => {
-    const [cards, setCards] = useState<CardItem[] | null>(null);
-
-    useEffect(() => {
-        let ignore = false;
-
-        setCards(null);
-        setError(false);
-
-        const fetchCardcards = async () => {
-            try {
-                const cards = await axios.get(
-                    `https://fakestoreapi.com/products${!categoryName ? '' : `/category/${categoryName}`}`
-                );
-
-                if (!ignore) setCards(cards.data);
-            } catch (error) {
-                setError(true);
-            }
-        };
-
-        fetchCardcards();
-
-        return () => {
-            ignore = true;
-        };
-    }, [categoryName, setError]);
-
+const ProductList: FC<ProductListType> = ({ products, loading }) => {
     return (
         <ProductListStyled>
-            {cards ? cards.map(cards => <ProductItem {...cards} key={cards.id} />) : <SkeletonList />}
+            {loading ? <SkeletonList /> : products.map(product => <ProductItem {...product} key={product.id} />)}
         </ProductListStyled>
     );
 };

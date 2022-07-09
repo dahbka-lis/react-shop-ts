@@ -1,4 +1,4 @@
-export type CardItem = {
+export interface IProduct {
     id: number;
     category: string;
     title: string;
@@ -9,4 +9,4 @@ export type CardItem = {
         rate: number;
         count: number;
     };
-};
+}

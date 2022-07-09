@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { CardItem } from '../../@types/card';
+import { IProduct } from '../../@types/product';
 import { StyledButton } from '../globalStyled';
 
 const Aside = styled.aside`
@@ -87,7 +87,7 @@ const BuyInfo = styled.div`
 `;
 
 type ProductAsideProps = {
-    product: CardItem;
+    product: IProduct;
 };
 
 const ProductAside: FC<ProductAsideProps> = ({ product }) => {

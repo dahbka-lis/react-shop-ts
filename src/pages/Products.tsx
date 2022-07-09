@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect, useState } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ThemeContextType } from '../@types/theme';
@@ -7,6 +7,8 @@ import { Container, Main, Overlay } from '../components/globalStyled';
 import ProductList from '../components/ProductList';
 import { ThemeContext } from '../context/ThemeContext';
 import { capitalize } from '../helpers/helpers';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { fetchProducts } from '../redux/actions/productAction';
 import ErrorPage from './Error';
 import NotFoundPage from './NotFound';
 
@@ -49,18 +51,20 @@ const categories = ['', "women's clothing", "men's clothing", 'jewelery', 'elect
 const ProductsPage: FC = () => {
     const { categoryName = '' } = useParams<string>();
     const { theme } = useContext(ThemeContext) as ThemeContextType;
-    const [isError, setIsError] = useState(false);
+    const { error, products, loading } = useAppSelector(state => state.product);
+
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        setIsError(false);
-    }, [categoryName]);
+        dispatch(fetchProducts(categoryName));
+    }, [categoryName, dispatch]);
 
     if (!categories.includes(categoryName)) {
         return <NotFoundPage />;
     }
 
-    if (isError) {
+    if (error) {
         return <ErrorPage />;
     }
 
@@ -71,7 +75,7 @@ const ProductsPage: FC = () => {
                     <h1>{!categoryName ? 'All products' : capitalize(categoryName)}</h1>
                 </PageTitle>
                 <hr />
-                <ProductList categoryName={categoryName} setError={setIsError} />
+                <ProductList loading={loading} products={products} />
             </ProductsContainer>
             {theme === 'dark' && <Overlay />}
             <ScrollButton />

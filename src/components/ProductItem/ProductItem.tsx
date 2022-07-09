@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { CardItem } from '../../@types/card';
+import { IProduct } from '../../@types/product';
 import { StyledLink } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
-const ProductItemStyled = styled(Link)`
+const ProductItemStyled = styled.div`
     color: var(--alt);
     text-decoration: none;
 
@@ -81,10 +81,14 @@ const ProductInfo = styled.div`
 `;
 // - - - - - - - - - - - - - - -
 
-const ProductItem: FC<CardItem> = ({ title, image, price, id }) => {
+const ProductItem: FC<IProduct> = ({ title, image, price, id }) => {
     const url = `/products/current/${id}`;
+    const navigate = useNavigate();
+
+    const navigateToProduct = () => navigate(url);
+
     return (
-        <ProductItemStyled to={url}>
+        <ProductItemStyled onClick={navigateToProduct}>
             <img src={image} alt="" />
             <span>Click to view more</span>
             <ProductInfo>
