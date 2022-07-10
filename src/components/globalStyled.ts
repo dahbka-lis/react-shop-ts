@@ -138,7 +138,7 @@ export const Overlay = styled.div`
     inset: 0;
     z-index: 8;
 
-    background-color: #00000060;
+    background-color: #00000075;
 `;
 
 export const MyLink = styled.a`
