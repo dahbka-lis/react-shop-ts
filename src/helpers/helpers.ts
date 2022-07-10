@@ -1,6 +1,6 @@
 export const capitalize = (str: string): string => str[0].toUpperCase() + str.slice(1);
 
-export const getSkeletonWidth = () => {
+export const getSkeletonWidth = (): number => {
     if (window.innerWidth >= 944) {
         const maxWidth = 352;
         const minWidth = 280;

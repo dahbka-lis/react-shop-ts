@@ -8,7 +8,7 @@ export const fetchProducts = (categoryName = '') => {
         try {
             dispatch(fetching());
 
-            const response = await axios.get<IProduct[]>(categoryName ? `/category/${categoryName}` : 'ds');
+            const response = await axios.get<IProduct[]>(categoryName ? `/category/${categoryName}` : '');
 
             dispatch(fetchSuccess(response.data));
         } catch (e) {

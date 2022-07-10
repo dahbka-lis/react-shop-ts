@@ -9,8 +9,8 @@ import { ThemeContext } from '../context/ThemeContext';
 import { capitalize } from '../helpers/helpers';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchProducts } from '../redux/actions/productAction';
-import ErrorPage from './Error';
-import NotFoundPage from './NotFound';
+import ErrorPage from './ErrorPage';
+import NotFoundPage from './NotFoundPage';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductsMain = styled(Main)`

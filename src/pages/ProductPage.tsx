@@ -5,7 +5,8 @@ import { IProduct } from '../@types/product';
 import axios from '../axios';
 import { ArrowIcon, Container, Main, StyledButton } from '../components/globalStyled';
 import ProductAside from '../components/ProductAside';
-import LoaderPage from './Loader';
+import ErrorPage from './ErrorPage';
+import LoaderPage from './LoaderPage';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductMainStyled = styled(Main)`
@@ -54,19 +55,31 @@ const ProductItemPage: FC = () => {
     const navigate = useNavigate();
     const { id = '' } = useParams();
     const [product, setProduct] = useState<IProduct | null>(null);
+    const [isError, setIsError] = useState(false);
 
     const navigateBack = () => {
         navigate(-1);
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+        setIsError(false);
+
         const fetchProduct = async () => {
-            const response = await axios.get(`${id}`);
-            setProduct(response.data);
+            try {
+                const response = await axios.get(`${id}`);
+                response.data === null ? setIsError(true) : setProduct(response.data);
+            } catch (e) {
+                setIsError(true);
+            }
         };
 
         if (id !== '') fetchProduct();
     }, [id]);
+
+    if (isError) {
+        return <ErrorPage />;
+    }
 
     if (product === null) {
         return <LoaderPage />;
