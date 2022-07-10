@@ -1,21 +1,23 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { ThemeContextType } from './@types/theme';
-import { ThemeContext } from './context/ThemeContext';
 import CartPage from './pages/CartPage';
 import ProductsPage from './pages/ProductListPage';
 import HomePage from './pages/HomePage';
 import Layout from './pages/Layout';
 import NotFoundPage from './pages/NotFoundPage';
 import ProductItemPage from './pages/ProductPage';
+import { useAppSelector } from './hooks/redux';
 
 const App: FC = () => {
-    const { theme } = useContext(ThemeContext) as ThemeContextType;
+    const { theme } = useAppSelector(state => state.theme);
 
     useEffect(() => {
-        theme === 'dark' ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+        if (theme === 'dark') {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
     }, [theme]);
-
     return (
         <Routes>
             <Route path="/" element={<Layout />}>

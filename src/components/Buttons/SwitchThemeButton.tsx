@@ -1,8 +1,8 @@
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
-import { ThemeContextType } from '../../@types/theme';
-import { ThemeContext } from '../../context/ThemeContext';
 import { capitalize } from '../../helpers/helpers';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { switchTheme } from '../../redux/slices/themeSlice';
 
 // - - - - - - STYLED-COMPONENTS
 const SwitchStyled = styled.label`
@@ -18,6 +18,7 @@ const SwitchStyled = styled.label`
 
     transition: background-color 0.2s ease;
     user-select: none;
+    cursor: pointer;
 
     input {
         display: none;
@@ -50,12 +51,17 @@ const SwitchStyled = styled.label`
 // - - - - - - - - - - - - - - -
 
 const SwitchThemeButton: FC = () => {
-    const { theme, switchTheme } = useContext(ThemeContext) as ThemeContextType;
+    const { theme } = useAppSelector(state => state.theme);
+    const dispatch = useAppDispatch();
+
+    const onChangeTheme = () => {
+        dispatch(switchTheme());
+    };
 
     return (
         <>
             <SwitchStyled className={theme === 'dark' ? 'checked' : ''}>
-                <input onChange={switchTheme} type="checkbox" />
+                <input onChange={onChangeTheme} type="checkbox" />
                 <div></div>
             </SwitchStyled>
             <span>{capitalize(theme)}</span>

@@ -1,11 +1,9 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { ThemeContextType } from '../@types/theme';
 import ScrollButton from '../components/Buttons/ScrollButton';
 import { Container, Main, Overlay } from '../components/globalStyled';
 import ProductList from '../components/ProductList';
-import { ThemeContext } from '../context/ThemeContext';
 import { capitalize } from '../helpers/helpers';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchProducts } from '../redux/slices/productSlice';
@@ -49,9 +47,9 @@ const PageTitle = styled.section`
 const categories = ['', "women's clothing", "men's clothing", 'jewelery', 'electronics'];
 
 const ProductsPage: FC = () => {
-    const { categoryName = '' } = useParams<string>();
-    const { theme } = useContext(ThemeContext) as ThemeContextType;
     const { error, products, loading } = useAppSelector(state => state.product);
+    const { theme } = useAppSelector(state => state.theme);
+    const { categoryName = '' } = useParams<string>();
 
     const dispatch = useAppDispatch();
 
