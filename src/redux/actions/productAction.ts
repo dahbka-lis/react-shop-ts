@@ -7,7 +7,9 @@ export const fetchProducts = (categoryName = '') => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(fetching());
-            const response = await axios.get<IProduct[]>(categoryName ? `/category/${categoryName}` : '');
+
+            const response = await axios.get<IProduct[]>(categoryName ? `/category/${categoryName}` : 'ds');
+
             dispatch(fetchSuccess(response.data));
         } catch (e) {
             dispatch(fetchError());
