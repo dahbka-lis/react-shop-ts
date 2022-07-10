@@ -1,8 +1,10 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { IProduct } from '../../@types/product';
+
+import { Link } from 'react-router-dom';
+
 import { StyledButton } from '../globalStyled';
+import { IProduct } from '../../@types/product';
 
 const Aside = styled.aside`
     display: flex;

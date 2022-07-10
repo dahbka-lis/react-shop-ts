@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
+
 import { Main } from '../components/globalStyled';
 
 // - - - - - - STYLED-COMPONENTS

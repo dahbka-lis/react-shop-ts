@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { useLocation } from 'react-router-dom';
+
 import { ArrowIcon, StyledLink } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS

@@ -1,12 +1,17 @@
 import { FC, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import ScrollButton from '../components/Buttons/ScrollButton';
+
+import { useParams } from 'react-router-dom';
+
 import { Container, Main, Overlay } from '../components/globalStyled';
 import ProductList from '../components/ProductList';
+import ScrollButton from '../components/Buttons/ScrollButton';
+
 import { capitalize } from '../helpers/helpers';
+
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchProducts } from '../redux/slices/productSlice';
+
 import ErrorPage from './ErrorPage';
 import NotFoundPage from './NotFoundPage';
 

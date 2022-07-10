@@ -1,5 +1,6 @@
 import { FC, useState, useEffect, useRef, BaseSyntheticEvent } from 'react';
 import styled from 'styled-components';
+
 import { ArrowIcon } from '../globalStyled';
 
 // - - - - - - STYLED-COMPONENTS

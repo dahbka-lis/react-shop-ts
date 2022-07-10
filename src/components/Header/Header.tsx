@@ -1,9 +1,11 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import CartButton from '../Buttons/CartButton';
+
+import { Link } from 'react-router-dom';
+
 import { Container } from '../globalStyled';
 import Navbar from '../Navbar';
+import CartButton from '../Buttons/CartButton';
 
 // - - - - - - STYLED-COMPONENTS
 const HeaderStyled = styled.header`

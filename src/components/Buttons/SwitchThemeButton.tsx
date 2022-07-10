@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+
 import { capitalize } from '../../helpers/helpers';
+
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { switchTheme } from '../../redux/slices/themeSlice';
 

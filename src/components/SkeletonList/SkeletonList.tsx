@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
+
 import ContentLoader from 'react-content-loader';
+
 import { getSkeletonWidth } from '../../helpers/helpers';
 import { useAppSelector } from '../../hooks/redux';
 

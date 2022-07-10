@@ -1,10 +1,14 @@
 import { FC, useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { IProduct } from '../@types/product';
+
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from '../axios';
+
+import { IProduct } from '../@types/product';
+
 import { ArrowIcon, Container, Main, StyledButton } from '../components/globalStyled';
 import ProductAside from '../components/ProductAside';
+
 import ErrorPage from './ErrorPage';
 import LoaderPage from './LoaderPage';
 

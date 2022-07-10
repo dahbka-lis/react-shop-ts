@@ -1,8 +1,10 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { IProduct } from '../../@types/product';
+
+import { useNavigate } from 'react-router-dom';
+
 import { StyledLink } from '../globalStyled';
+import { IProduct } from '../../@types/product';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductItemStyled = styled.div`

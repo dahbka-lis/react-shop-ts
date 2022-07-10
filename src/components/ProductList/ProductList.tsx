@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { IProduct } from '../../@types/product';
+
 import ProductItem from '../ProductItem';
 import SkeletonList from '../SkeletonList';
+import { IProduct } from '../../@types/product';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductListStyled = styled.div`

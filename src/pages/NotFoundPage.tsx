@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+
 import { Container, Main, StyledLink } from '../components/globalStyled';
 
 // - - - - - - STYLED-COMPONENTS
