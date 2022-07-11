@@ -11,7 +11,7 @@ import CartButton from '../Buttons/CartButton';
 const HeaderStyled = styled.header`
     color: var(--alt);
 
-    padding-block: 1.2rem;
+    padding-block: 0.75rem;
 
     position: sticky;
     top: 0;

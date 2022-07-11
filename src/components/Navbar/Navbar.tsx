@@ -67,10 +67,10 @@ const IconMenu = styled.button`
     border: none;
 
     width: 30px;
-    height: 24px;
+    height: 18px;
 
     position: absolute;
-    top: calc(50% - 12px);
+    top: calc(50% - 9px);
     right: 1%;
     z-index: 90;
 

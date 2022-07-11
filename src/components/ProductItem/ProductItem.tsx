@@ -19,7 +19,7 @@ const ProductItemStyled = styled.div`
     cursor: pointer;
 
     background-color: var(--primary);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 15px 3px;
 
     & > img {
         width: 100%;

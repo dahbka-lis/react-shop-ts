@@ -18,7 +18,7 @@ const ScrollButtonStyled = styled.div`
     cursor: pointer;
 
     opacity: 0;
-    box-shadow: 0 3px 15px #00000036;
+    box-shadow: 0 0 15px #00000050;
     transition: box-shadow 0.2s ease, opacity 0.15s ease-in;
 
     &:hover {

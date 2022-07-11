@@ -33,6 +33,7 @@ const ProductsContainer = styled(Container)`
     position: relative;
     z-index: 9;
     background-color: var(--primary-light);
+    box-shadow: 0 0 50px #00000021;
 
     @media (max-width: 1200px) {
         background-color: var(--primary-light);
@@ -41,9 +42,16 @@ const ProductsContainer = styled(Container)`
 
 const PageTitle = styled.section`
     h1 {
+        margin-bottom: 0.4em;
         padding-top: 0.75em;
         font-size: 3em;
         text-align: center;
+    }
+
+    p {
+        text-align: center;
+        max-width: 800px;
+        margin-inline: auto;
     }
 `;
 // - - - - - - - - - - - - - - -
@@ -77,6 +85,11 @@ const ProductsPage: FC = () => {
             <ProductsContainer>
                 <PageTitle>
                     <h1>{!categoryName ? 'All products' : capitalize(categoryName)}</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ad quaerat hic nesciunt aliquid
+                        voluptates aut, veniam, vel atque eveniet illo velit! Sapiente rem veniam natus voluptates, quis
+                        voluptas ipsa!
+                    </p>
                 </PageTitle>
                 <hr />
                 <ProductList loading={loading} products={products} />
