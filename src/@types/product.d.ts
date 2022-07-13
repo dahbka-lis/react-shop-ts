@@ -10,3 +10,5 @@ export interface IProduct {
         count: number;
     };
 }
+
+export type ICartItem = IProduct & { count: number };

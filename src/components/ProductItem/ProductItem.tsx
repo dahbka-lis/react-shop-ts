@@ -1,10 +1,12 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
 
-import { StyledLink } from '../globalStyled';
+import { StyledButton } from '../globalStyled';
 import { IProduct } from '../../@types/product';
+import { useAppDispatch } from '../../hooks/redux';
+import { addItem } from '../../redux/slices/cartSlice';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductItemStyled = styled.div`
@@ -83,20 +85,36 @@ const ProductInfo = styled.div`
 `;
 // - - - - - - - - - - - - - - -
 
-const ProductItem: FC<IProduct> = ({ title, image, price, id }) => {
-    const url = `/products/current/${id}`;
+interface ProductItemProps {
+    product: IProduct;
+}
+
+const ProductItem: FC<ProductItemProps> = ({ product }) => {
+    const url = `/products/current/${product.id}`;
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
 
     const navigateToProduct = () => navigate(url);
 
+    const addToCart = (e: React.MouseEvent) => {
+        e.stopPropagation();
+
+        const newProduct = {
+            ...product,
+            count: 1,
+        };
+
+        dispatch(addItem(newProduct));
+    };
+
     return (
         <ProductItemStyled onClick={navigateToProduct}>
-            <img src={image} alt="" />
+            <img src={product.image} alt="" />
             <span>Click to view more</span>
             <ProductInfo>
                 <div>
-                    <h3>{title}</h3>
-                    <StyledLink to={url}>$&nbsp;{price}</StyledLink>
+                    <h3>{product.title}</h3>
+                    <StyledButton onClick={addToCart}>$&nbsp;{product.price}</StyledButton>
                 </div>
             </ProductInfo>
         </ProductItemStyled>

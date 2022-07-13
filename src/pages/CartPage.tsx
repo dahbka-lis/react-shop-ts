@@ -2,6 +2,8 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import CartItem from '../components/CartItem';
 import { CartIcon, Container, Main, MyLink, StyledButton, TrashIcon } from '../components/globalStyled';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { clearCart } from '../redux/slices/cartSlice';
 
 const PageInner = styled.div`
     display: flex;
@@ -54,6 +56,15 @@ const CartTotal = styled.div`
 `;
 
 const CartPage: FC = () => {
+    const { items, totalPrice } = useAppSelector(state => state.cart);
+    const dispatch = useAppDispatch();
+
+    const toEmptyCart = () => {
+        if (window.confirm('Are you sure you want to empty the cart?')) {
+            dispatch(clearCart());
+        }
+    };
+
     return (
         <Main>
             <Container>
@@ -62,20 +73,19 @@ const CartPage: FC = () => {
                         <h1>
                             <CartIcon alt /> My cart
                         </h1>
-                        <MyLink>
+                        <MyLink onClick={toEmptyCart}>
                             <TrashIcon />
                             Empty cart
                         </MyLink>
                     </CartInfo>
 
                     <hr />
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
+                    {items.map(item => (
+                        <CartItem item={item} />
+                    ))}
                     <hr />
                     <CartTotal>
-                        <h2>Total price: $123.5</h2>
+                        <h2>Total price: ${totalPrice}</h2>
                         <StyledButton>Go order</StyledButton>
                     </CartTotal>
                 </PageInner>
@@ -85,11 +95,3 @@ const CartPage: FC = () => {
 };
 
 export default CartPage;
-
-// category: "men's clothing"
-// description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
-// id: 1
-// image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-// price: 109.95
-// rating: {rate: 3.9, count: 120}
-// title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"

@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { StyledButton } from '../globalStyled';
-import { IProduct } from '../../@types/product';
+import { ICartItem, IProduct } from '../../@types/product';
+import { useAppDispatch } from '../../hooks/redux';
+import { addItem } from '../../redux/slices/cartSlice';
 
 const Aside = styled.aside`
     display: flex;
@@ -93,6 +95,16 @@ type ProductAsideProps = {
 };
 
 const ProductAside: FC<ProductAsideProps> = ({ product }) => {
+    const dispatch = useAppDispatch();
+
+    const addToCart = () => {
+        const newItem: ICartItem = {
+            ...product,
+            count: 1,
+        };
+        dispatch(addItem(newItem));
+    };
+
     return (
         <Aside>
             <section>
@@ -109,10 +121,12 @@ const ProductAside: FC<ProductAsideProps> = ({ product }) => {
                     <Link to={`/products/${product.category}`}>{product.category}</Link>
                 </div>
             </section>
+
             <p>{product.description}</p>
+
             <BuyInfo>
                 <span>$ {product.price}</span>
-                <StyledButton>Add to cart</StyledButton>
+                <StyledButton onClick={addToCart}>Add to cart</StyledButton>
             </BuyInfo>
         </Aside>
     );

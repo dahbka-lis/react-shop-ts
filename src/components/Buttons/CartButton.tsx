@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 
 import { ArrowIcon, CartIcon, StyledLink } from '../globalStyled';
+import { useAppSelector } from '../../hooks/redux';
 
 // - - - - - - STYLED-COMPONENTS
 const CartLink = styled(StyledLink)`
@@ -26,6 +27,7 @@ const CountNumber = styled.span`
 
 const CartButton: FC = () => {
     const { pathname } = useLocation();
+    const { totalPrice, totalCount } = useAppSelector(state => state.cart);
 
     if (pathname === '/cart') {
         return (
@@ -38,8 +40,8 @@ const CartButton: FC = () => {
     return (
         <CartLink to="cart">
             <CartIcon alt={false} />
-            <CountNumber>2</CountNumber>
-            <span>$125</span>
+            <CountNumber>{totalCount}</CountNumber>
+            <span>${totalPrice}</span>
         </CartLink>
     );
 };

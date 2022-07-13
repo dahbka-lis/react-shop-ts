@@ -22,7 +22,7 @@ type ProductListType = {
 const ProductList: FC<ProductListType> = ({ products, loading }) => {
     return (
         <ProductListStyled>
-            {loading ? <SkeletonList /> : products.map(product => <ProductItem {...product} key={product.id} />)}
+            {loading ? <SkeletonList /> : products.map(product => <ProductItem product={product} key={product.id} />)}
         </ProductListStyled>
     );
 };

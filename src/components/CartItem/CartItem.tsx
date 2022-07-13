@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { IconClose, IconMinus, IconPlus } from '../globalStyled';
+import { ICartItem } from '../../@types/product';
+import { useAppDispatch } from '../../hooks/redux';
+import { addItem, decrementItem, removeItem } from '../../redux/slices/cartSlice';
+import { IconDelete, IconMinus, IconPlus } from '../globalStyled';
 
 const CartItemStyled = styled.div`
     width: 100%;
@@ -87,26 +90,44 @@ const CardCount = styled.div`
     }
 `;
 
-interface ICartItemProps {}
+interface ICartItemProps {
+    item: ICartItem;
+}
 
-const CartItem: FC<ICartItemProps> = () => {
+const CartItem: FC<ICartItemProps> = ({ item }) => {
+    const dispatch = useAppDispatch();
+
+    const incrementItemCount = () => {
+        dispatch(addItem(item));
+    };
+
+    const decrementItemCount = () => {
+        dispatch(decrementItem(item.id));
+    };
+
+    const deleteItem = () => {
+        if (window.confirm('Are you sure you want to remove this from your cart?')) {
+            dispatch(removeItem(item.id));
+        }
+    };
+
     return (
         <CartItemStyled>
-            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="" />
+            <img src={item.image} alt="" />
             <CardInfo>
                 <CardTitle>
-                    <span>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</span>
-                    <sub>men's clothing</sub>
+                    <span>{item.title}</span>
+                    <sub>{item.category}</sub>
                 </CardTitle>
 
                 <CardCount>
-                    <IconMinus />
-                    <span>1</span>
-                    <IconPlus />
+                    <IconMinus onClick={decrementItemCount} />
+                    <span>{item.count}</span>
+                    <IconPlus onClick={incrementItemCount} />
                 </CardCount>
 
-                <span>$&nbsp;123.5</span>
-                <IconClose />
+                <span>$&nbsp;{Math.round(item.price * item.count * 100) / 100}</span>
+                <IconDelete onClick={deleteItem} />
             </CardInfo>
         </CartItemStyled>
     );
