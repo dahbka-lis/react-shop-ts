@@ -57,10 +57,9 @@ const cartSlice = createSlice({
 
             if (oldItem) {
                 oldItem.count++;
-                return;
+            } else {
+                state.items.push(action.payload);
             }
-
-            state.items.push(action.payload);
 
             window.localStorage.setItem('cart-items', JSON.stringify(state.items));
             window.localStorage.setItem('total-price', String(state.totalPrice));
