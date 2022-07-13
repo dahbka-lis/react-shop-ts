@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { ArrowIcon, CartIcon, StyledLink } from '../globalStyled';
+import { ArrowIcon, CartIcon, StyledButton } from '../globalStyled';
 import { useAppSelector } from '../../hooks/redux';
 
 // - - - - - - STYLED-COMPONENTS
-const CartLink = styled(StyledLink)`
+const CartButtonInner = styled(StyledButton)`
     @media (max-width: 1024px) {
         margin-right: calc(50px + 1%);
     }
@@ -26,23 +26,28 @@ const CountNumber = styled.span`
 // - - - - - - - - - - - - - - -
 
 const CartButton: FC = () => {
-    const { pathname } = useLocation();
     const { totalPrice, totalCount } = useAppSelector(state => state.cart);
+    const { pathname } = useLocation();
+    const navigate = useNavigate();
+
+    const navigateToCart = () => navigate('/cart');
+
+    const navigateBack = () => navigate(-1);
 
     if (pathname === '/cart') {
         return (
-            <CartLink to="products">
+            <CartButtonInner onClick={navigateBack}>
                 <ArrowIcon /> Back
-            </CartLink>
+            </CartButtonInner>
         );
     }
 
     return (
-        <CartLink to="cart">
+        <CartButtonInner onClick={navigateToCart}>
             <CartIcon alt={false} />
             <CountNumber>{totalCount}</CountNumber>
             <span>${totalPrice}</span>
-        </CartLink>
+        </CartButtonInner>
     );
 };
 

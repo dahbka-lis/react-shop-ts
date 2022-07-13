@@ -123,7 +123,10 @@ const IconMenu = styled.button`
 const Navbar: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = (): void => setIsOpen(state => !state);
+    const toggleMenu = (): void => {
+        setIsOpen(state => !state);
+    };
+
     const closeMenu = (): void => {
         setTimeout(() => setIsOpen(false), 200);
     };

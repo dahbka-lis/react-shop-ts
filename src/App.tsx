@@ -1,11 +1,13 @@
 import { FC, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import CartPage from './pages/CartPage';
 import ProductsPage from './pages/ProductListPage';
 import HomePage from './pages/HomePage';
 import Layout from './pages/Layout';
 import NotFoundPage from './pages/NotFoundPage';
 import ProductItemPage from './pages/ProductPage';
+
 import { useAppTheme } from './hooks/useAppTheme';
 
 const App: FC = () => {
@@ -18,6 +20,7 @@ const App: FC = () => {
             document.body.classList.remove('dark');
         }
     }, [theme]);
+
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
