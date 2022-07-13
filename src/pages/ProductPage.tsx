@@ -6,9 +6,10 @@ import axios from '../axios';
 
 import { IProduct } from '../@types/product';
 
-import { ArrowIcon, Container, Main, StyledButton } from '../components/globalStyled';
-import ProductAside from '../components/ProductAside';
+import { Container, Main, StyledButton } from '../components/globalStyled';
+import { ArrowIcon } from '../components/Icons';
 
+import ProductAside from '../components/ProductAside';
 import ErrorPage from './ErrorPage';
 import LoaderPage from './LoaderPage';
 

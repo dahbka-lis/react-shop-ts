@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { ArrowIcon, CartIcon, StyledButton } from '../globalStyled';
+import { ArrowIcon, CartIcon } from '../Icons';
+import { StyledButton } from '../globalStyled';
 import { useAppSelector } from '../../hooks/redux';
 
 // - - - - - - STYLED-COMPONENTS

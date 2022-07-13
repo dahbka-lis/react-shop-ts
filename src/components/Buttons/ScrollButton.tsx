@@ -1,7 +1,7 @@
 import { FC, useState, useEffect, useRef, BaseSyntheticEvent } from 'react';
 import styled from 'styled-components';
 
-import { ArrowIcon } from '../globalStyled';
+import { ArrowIcon } from '../Icons';
 
 // - - - - - - STYLED-COMPONENTS
 const ScrollButtonStyled = styled.div`

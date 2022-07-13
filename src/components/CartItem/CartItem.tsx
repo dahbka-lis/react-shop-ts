@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ICartItem } from '../../@types/product';
 import { useAppDispatch } from '../../hooks/redux';
 import { addItem, decrementItem, removeItem } from '../../redux/slices/cartSlice';
-import { IconDelete, IconMinus, IconPlus } from '../globalStyled';
+import { IconDelete, IconMinus, IconPlus } from '../Icons';
 
 const CartItemStyled = styled.div`
     width: 100%;

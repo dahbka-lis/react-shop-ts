@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import CartItem from '../components/CartItem';
-import { CartIcon, Container, Main, MyLink, StyledButton, TrashIcon } from '../components/globalStyled';
+import { Container, Main, MyLink, StyledButton } from '../components/globalStyled';
+import { TrashIcon, CartIcon } from '../components/Icons';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { clearCart } from '../redux/slices/cartSlice';
 
