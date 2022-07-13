@@ -14,6 +14,7 @@ import { fetchProducts } from '../redux/slices/productSlice';
 
 import ErrorPage from './ErrorPage';
 import NotFoundPage from './NotFoundPage';
+import { useAppTheme } from '../hooks/useAppTheme';
 
 // - - - - - - STYLED-COMPONENTS
 const ProductsMain = styled(Main)`
@@ -61,8 +62,8 @@ const categories = ['', "women's clothing", "men's clothing", 'jewelery', 'elect
 
 const ProductsPage: FC = () => {
     const { error, products, loading } = useAppSelector(state => state.product);
-    const { theme } = useAppSelector(state => state.theme);
     const { categoryName = '' } = useParams<string>();
+    const [theme] = useAppTheme();
 
     const dispatch = useAppDispatch();
 

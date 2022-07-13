@@ -6,10 +6,10 @@ import HomePage from './pages/HomePage';
 import Layout from './pages/Layout';
 import NotFoundPage from './pages/NotFoundPage';
 import ProductItemPage from './pages/ProductPage';
-import { useAppSelector } from './hooks/redux';
+import { useAppTheme } from './hooks/useAppTheme';
 
 const App: FC = () => {
-    const { theme } = useAppSelector(state => state.theme);
+    const [theme] = useAppTheme();
 
     useEffect(() => {
         if (theme === 'dark') {

@@ -3,10 +3,10 @@ import { FC, useEffect, useState } from 'react';
 import ContentLoader from 'react-content-loader';
 
 import { getSkeletonWidth } from '../../helpers/helpers';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppTheme } from '../../hooks/useAppTheme';
 
 const SkeletonList: FC = () => {
-    const { theme } = useAppSelector(state => state.theme);
+    const [theme] = useAppTheme();
     const [contentWidth, setContentWidth] = useState(getSkeletonWidth());
 
     const bgColor = theme === 'dark' ? '#6b6b6b' : '#d8d8d8';
