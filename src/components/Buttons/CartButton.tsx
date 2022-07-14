@@ -45,7 +45,7 @@ const CartButton: FC = () => {
 
     return (
         <CartButtonInner onClick={navigateToCart}>
-            <CartIcon alt={false} />
+            <CartIcon altColor={false} />
             <CountNumber>{totalCount}</CountNumber>
             <span>${totalPrice}</span>
         </CartButtonInner>

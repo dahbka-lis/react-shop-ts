@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import CartItem from '../components/CartItem';
+import CartList from '../components/CartList';
 import { Container, Main, MyLink, StyledButton } from '../components/globalStyled';
 import { TrashIcon, CartIcon } from '../components/Icons';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
@@ -72,7 +72,7 @@ const CartPage: FC = () => {
                 <PageInner>
                     <CartInfo>
                         <h1>
-                            <CartIcon alt /> My cart
+                            <CartIcon altColor /> My cart
                         </h1>
                         <MyLink onClick={toEmptyCart}>
                             <TrashIcon />
@@ -81,13 +81,14 @@ const CartPage: FC = () => {
                     </CartInfo>
 
                     <hr />
-                    {items.map(item => (
-                        <CartItem item={item} />
-                    ))}
+
+                    <CartList items={items} />
+
                     <hr />
+
                     <CartTotal>
                         <h2>Total price: ${totalPrice}</h2>
-                        <StyledButton>Go order</StyledButton>
+                        <StyledButton disabled={items.length === 0}>Go order</StyledButton>
                     </CartTotal>
                 </PageInner>
             </Container>

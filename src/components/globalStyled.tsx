@@ -76,6 +76,11 @@ export const StyledButton = styled.button`
     transition: background 0.1s ease-in-out;
     cursor: pointer;
 
+    &[disabled] {
+        opacity: 0.5;
+        cursor: auto;
+    }
+
     &:hover {
         background: #0c9b6b;
     }

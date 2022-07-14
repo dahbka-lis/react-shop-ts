@@ -44,7 +44,7 @@ export const ArrowIcon = styled.div`
 `;
 
 export const CartIcon = styled.div`
-    --color: ${(props: { alt: boolean }) => (props?.alt ? 'var(--alt)' : 'white')};
+    --color: ${(props: { altColor: boolean }) => (props?.altColor ? 'var(--alt)' : 'white')};
 
     display: block;
     width: 20px;

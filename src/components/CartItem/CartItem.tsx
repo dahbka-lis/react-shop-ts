@@ -1,22 +1,18 @@
 import React, { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ICartItem } from '../../@types/product';
 import { useAppDispatch } from '../../hooks/redux';
 import { addItem, decrementItem, removeItem } from '../../redux/slices/cartSlice';
 import { IconDelete, IconMinus, IconPlus } from '../Icons';
 
-const CartItemStyled = styled.div`
+const CartItemStyled = styled.li`
     width: 100%;
     border-radius: 10px;
 
     display: flex;
     overflow: hidden;
     background-color: var(--primary);
-
-    img {
-        width: auto;
-        max-height: min(15vw, 200px);
-    }
 
     @media (max-width: 768px) {
         img {
@@ -49,8 +45,12 @@ const CardTitle = styled.div`
     display: flex;
     flex-direction: column;
 
+    width: 100%;
+    max-width: min(350px, 30vw);
+
     span {
         font-size: 1.3rem;
+        cursor: pointer;
 
         white-space: nowrap;
         overflow: hidden;
@@ -96,6 +96,7 @@ interface ICartItemProps {
 
 const CartItem: FC<ICartItemProps> = ({ item }) => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const incrementItemCount = () => {
         dispatch(addItem(item));
@@ -111,12 +112,15 @@ const CartItem: FC<ICartItemProps> = ({ item }) => {
         }
     };
 
+    const navigateToProduct = () => {
+        navigate('/products/current/' + item.id);
+    };
+
     return (
         <CartItemStyled>
-            <img src={item.image} alt="" />
             <CardInfo>
                 <CardTitle>
-                    <span>{item.title}</span>
+                    <span onClick={navigateToProduct}>{item.title}</span>
                     <sub>{item.category}</sub>
                 </CardTitle>
 
