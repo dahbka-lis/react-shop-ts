@@ -7,7 +7,7 @@ import { Container, Main, Overlay } from '../components/globalStyled';
 import ProductList from '../components/ProductList';
 import ScrollButton from '../components/Buttons/ScrollButton';
 
-import { capitalize } from '../helpers/helpers';
+import { capitalize } from '../helpers';
 
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchProducts } from '../redux/slices/productSlice';

@@ -1,7 +1,7 @@
 import { FC, ChangeEventHandler } from 'react';
 import styled from 'styled-components';
 
-import { capitalize } from '../../helpers/helpers';
+import { capitalize } from '../../helpers';
 import { useAppTheme } from '../../hooks/useAppTheme';
 
 // - - - - - - STYLED-COMPONENTS

@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 
 import ContentLoader from 'react-content-loader';
 
-import { getSkeletonWidth } from '../../helpers/helpers';
+import { getSkeletonWidth } from '../../helpers';
 import { useAppTheme } from '../../hooks/useAppTheme';
 
 const SkeletonList: FC = () => {
