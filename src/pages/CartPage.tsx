@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import CartList from '../components/CartList';
 import { Container, Main, MyLink, StyledButton } from '../components/globalStyled';
@@ -65,6 +65,8 @@ const CartPage: FC = () => {
             dispatch(clearCart());
         }
     };
+
+    useEffect(() => window.scrollTo(0, 0), []);
 
     return (
         <Main>

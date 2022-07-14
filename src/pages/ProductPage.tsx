@@ -67,6 +67,8 @@ const ProductItemPage: FC = () => {
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+
         setIsError(false);
 
         const fetchProduct = async () => {

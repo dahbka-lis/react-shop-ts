@@ -68,6 +68,8 @@ const ProductsPage: FC = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+
         if (categories.includes(categoryName)) dispatch(fetchProducts(categoryName));
     }, [categoryName, dispatch]);
 
