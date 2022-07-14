@@ -82,10 +82,11 @@ const CardCount = styled.div`
     }
 
     @media (max-width: 768px) {
-        gap: 0.3rem;
+        gap: 0.35rem;
 
         & > span {
             font-size: 1rem;
+            padding-top: 0.15em;
         }
     }
 `;

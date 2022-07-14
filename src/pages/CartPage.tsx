@@ -76,10 +76,12 @@ const CartPage: FC = () => {
                         <h1>
                             <CartIcon altColor /> My cart
                         </h1>
-                        <MyLink onClick={toEmptyCart}>
-                            <TrashIcon />
-                            Empty cart
-                        </MyLink>
+                        {items.length !== 0 && (
+                            <MyLink onClick={toEmptyCart}>
+                                <TrashIcon />
+                                Empty cart
+                            </MyLink>
+                        )}
                     </CartInfo>
 
                     <hr />
