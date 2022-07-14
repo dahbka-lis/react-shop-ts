@@ -15,6 +15,10 @@ const CartButtonInner = styled(StyledButton)`
     @media (max-width: 768px) {
         font-size: 0.75em;
     }
+
+    span {
+        padding-top: 0;
+    }
 `;
 
 const CountNumber = styled.span`
